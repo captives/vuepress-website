@@ -37,9 +37,14 @@ This template should help get you started developing with Vue 3 in Vite 4.
 
 ## 目录
 
+├── docs # github pages 构建目录
+├── docx 
+│ ├── .vuepress # vuepress 配置目录
+│ ├── **/*.md   # 教程笔记
+│ └── *.md      # 首页文档
 ├── public
 │ ├── img # 图片资源
-│ │ └── icons # head icons
+│ │     └── icons # head icons
 │ └── index.html # 模板文件
 │ └── robots.txt
 ├── src
@@ -65,8 +70,10 @@ This template should help get you started developing with Vue 3 in Vite 4.
 │ └── main.ts # 入口
 ├── README.md
 ├── package.json
+├── *.env # vite 参数配置
 ├── index.html
 └── tsconfig.json
+└── vite.config.ts  # vite 配置
 
 ## Project setup
 

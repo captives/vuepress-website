@@ -1,4 +1,3 @@
-import fs from 'fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath, URL } from 'node:url';
 import { defineConfig, loadEnv } from 'vite';

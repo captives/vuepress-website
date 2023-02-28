@@ -7,7 +7,7 @@
     "vite.config.*",
     "vitest.config.*",
     "cypress.config.*",
-    "config-pwa.ts"
+    "vite.config.*",
   ],
   "compilerOptions": {
     "composite": true,

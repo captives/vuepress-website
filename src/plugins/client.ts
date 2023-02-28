@@ -1,4 +1,4 @@
-import { App, AppConfig, defineAsyncComponent, provide } from 'vue';
+import { App, AppConfig, defineAsyncComponent } from 'vue';
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
 import helper from "./helper";
@@ -24,7 +24,11 @@ export default {
                 url.port = window.location.protocol.indexOf('https') !=-1 ? window.location.port : '2013';
                 url.pathname = filePath;
             } else {
-                url.pathname = "dist/" + filePath;
+                if(window.location.protocol.indexOf('https') !=-1){
+                    url.pathname = "/vuepress-website/app/" + filePath;
+                }else{
+                    url.pathname = "dist/" + filePath;
+                }
             }
             return url.href;
         };
