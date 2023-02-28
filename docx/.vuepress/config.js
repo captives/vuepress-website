@@ -11,6 +11,7 @@ export default defineUserConfig({
     lang: "/",
     title: "你好， VuePress ！",
     description: "这是我的第一个 VuePress 站点",
+    base:"/vuepress-website/",
     dest: path.resolve(__dirname, "./../../docs"),
     port: 2023,
     alias: {

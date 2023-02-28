@@ -9,6 +9,7 @@ export default defineConfig({
   plugins: [vue()],
   build: {
     outDir: 'docs/app',
+    assetsDir:"docs/"
   },
   resolve: {
     alias: {
