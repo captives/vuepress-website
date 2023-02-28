@@ -7,6 +7,14 @@ export const useDevices = () => {
   const videoInput = reactive<Array<MediaDeviceInfo>>([]);
   const error = ref("");
 
+  const gotStream = (stream?:MediaStream) => {
+    // if(stream){
+    //   videoElement.srcObject = stream;
+    // }
+    // Refresh button list in case labels have become available
+    return navigator.mediaDevices.enumerateDevices();
+  }
+
   const gotDevices = (deviceInfos: Array<MediaDeviceInfo>) => {
     list.splice(0, list.length, ...deviceInfos);
     audioInput.splice(0, audioInput.length, ...deviceInfos.filter((device: MediaDeviceInfo) => device.kind === "audioinput"));
@@ -41,6 +49,10 @@ export const useDevices = () => {
     }
   }
 
-  navigator.mediaDevices.enumerateDevices().then(gotDevices).catch(handleError);
-  return { list, audioInput, audioOutput, videoInput, playback };
+  // navigator.mediaDevices.enumerateDevices()
+  navigator.mediaDevices.getUserMedia({audio:true, video:true})
+  .then(gotStream)
+  .then(gotDevices)
+  .catch(handleError);
+  return {error, list, audioInput, audioOutput, videoInput, playback };
 };

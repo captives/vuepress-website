@@ -1,5 +1,5 @@
 <template>
-  <BaseView class="center">
+  <WebRTC ref="webrtc" class="center">
     <el-container style="padding:20px; flex:none">
       <el-aside class="video"
                 width="480px">
@@ -44,12 +44,12 @@
               class="error"
               type="danger">{{ error }}</el-tag>
     </el-footer>
-  </BaseView>
+  </WebRTC>
 </template>
 <script lang="ts" setup>
 import { ref, reactive } from 'vue';
 import { useDevices } from '@/hooks/webrtc';
-import BaseView from './BaseView.vue';
+import WebRTC from './WebRTC.vue';
 import StreamTracks from "./StreamTracks.vue";
 
 const { list, playback, error } = useDevices();
@@ -81,7 +81,7 @@ const options = reactive({
 });
 
 
-const tableRowClassName = ({ row, rowIndex }) => {
+const tableRowClassName = ({ row, rowIndex }: any) => {
   return "row-" + row.kind;
 }
 
@@ -134,9 +134,9 @@ const start = (videoElement: HTMLMediaElement) => {
 }
 
 const changeDevice = (device: MediaDeviceInfo) => {
-  const videoElement = localVideo.value;
+  const videoElement: HTMLMediaElement = localVideo.value as HTMLMediaElement;
   if (device.kind === "audiooutput") {
-    const deviceId = selectDevice.audiooutput?.deviceId;
+    const deviceId = selectDevice.audiooutput!.deviceId;
     playback(videoElement, deviceId);
   } else {
     selectDevice[device.kind] = device;

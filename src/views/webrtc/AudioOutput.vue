@@ -1,5 +1,5 @@
 <template>
-    <BaseView title="选择输出设备">
+    <WebRTC title="选择输出设备">
         <URLInput v-model="url"
                   :list="$videoList"></URLInput>
         <video ref="videoElement"
@@ -8,7 +8,7 @@
                controls
                loop
                autoplay></video>
-               
+
         <el-table :data="audioOutput"
                   width="100%">
             <el-table-column prop="label"
@@ -24,13 +24,13 @@
                 </template>
             </el-table-column>
         </el-table>
-    </BaseView>
+    </WebRTC>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useDevices } from '@/hooks/webrtc';
-import BaseView from './BaseView.vue';
+import WebRTC from './WebRTC.vue';
 
 const { audioOutput, playback } = useDevices();
 const url = ref("");

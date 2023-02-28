@@ -20,15 +20,12 @@ export default {
         // 静态存储
         app.config.globalProperties.$oss = (filePath: string) => {
             const url = new URL(window.location.href);
+            const isSSL: boolean = window.location.protocol.indexOf('https') != -1;
             if (import.meta.env.DEV) {
-                url.port = window.location.protocol.indexOf('https') !=-1 ? window.location.port : '2013';
-                url.pathname = filePath;
+                url.port = isSSL ? window.location.port : '2013';
+                url.pathname = (isSSL ? "/vuepress-website/app/" : "") + filePath;
             } else {
-                if(window.location.protocol.indexOf('https') !=-1){
-                    url.pathname = "/vuepress-website/app/" + filePath;
-                }else{
-                    url.pathname = "dist/" + filePath;
-                }
+                url.pathname = (isSSL ? "/vuepress-website/app/" : "dist/") + filePath;
             }
             return url.href;
         };
