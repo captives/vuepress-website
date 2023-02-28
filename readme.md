@@ -98,11 +98,21 @@ cp .env.dev .env.local
 ### Nginx proxy
 
 ```nginx
+# HTTPS server
+#
 server {
-    listen       2022;
-    server_name  localhost;
+    listen 443 ssl;
+    server_name localhost;
 
-    location /tools {
+    ssl	on;
+    ssl_certificate D:\\nginx-1.8.1\\conf\\ssl\\seven.uuabc.com+3.pem;
+    ssl_certificate_key D:\\nginx-1.8.1\\conf\\ssl\\seven.uuabc.com+3-key.pem;
+    ssl_ciphers EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH;
+    ssl_protocols TLSv1.1 TLSv1.2;
+
+    location /vuepress-website/app {
+        proxy_pass http://127.0.0.1:2013/;
+        add_header 'Access-Control-Allow-Origin' '*' always;
         #允许跨域请求的域，* 代表所有
         add_header 'Access-Control-Allow-Origin' *;
         #允许带上cookie请求
@@ -111,26 +121,23 @@ server {
         add_header 'Access-Control-Allow-Methods' *;
         #允许请求的header
         add_header 'Access-Control-Allow-Headers' *;
-        #代理地址
-        proxy_pass http://127.0.0.1:8080;
+    }
+
+    location /vuepress-website {
+        proxy_pass http://127.0.0.1:2023/;
+        #允许跨域请求的域，* 代表所有
+        add_header 'Access-Control-Allow-Origin' *;
+        #允许带上cookie请求
+        add_header 'Access-Control-Allow-Credentials' 'true';
+        #允许请求的方法，比如 GET/POST/PUT/DELETE
+        add_header 'Access-Control-Allow-Methods' *;
+        #允许请求的header
+        add_header 'Access-Control-Allow-Headers' *;
     }
 
     location / {
-        #允许跨域请求的域，* 代表所有
-        add_header 'Access-Control-Allow-Origin' *;
-        #允许带上cookie请求
-        add_header 'Access-Control-Allow-Credentials' 'true';
-        #允许请求的方法，比如 GET/POST/PUT/DELETE
-        add_header 'Access-Control-Allow-Methods' *;
-        #允许请求的header
-        add_header 'Access-Control-Allow-Headers' *;
-        #代理地址
-        proxy_pass http://127.0.0.1:8008;
-    }
-
-    error_page   500 502 503 504  /50x.html;
-    location = /50x.html {
-        root   html;
+        root html;
+        index index.html index.htm;
     }
 }
 ```

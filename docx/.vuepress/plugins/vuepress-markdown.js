@@ -3,7 +3,7 @@ const src = path.resolve(__dirname, "./../../../src/");
 
 export default {
     headers: {
-        level: [1, 2, 3],
+        level: [2, 3, 4],
     },
     toc: {
         level: [2, 3, 4, 5],
