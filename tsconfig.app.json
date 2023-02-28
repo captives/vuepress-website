@@ -1,0 +1,46 @@
+{
+  "include": [
+    "src/env.d.ts",
+    "src/**/*",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx",
+    "config-pwa.ts"
+  ],
+  "exclude": [
+    "src/**/__tests__/*"
+  ],
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "composite": true,
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "strict": true,
+    "allowJs": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "baseUrl": "./",
+    "types": [
+      "vite/client",
+      "pinia-plugin-persist",
+      "vite-plugin-pwa/client",
+      "vite-plugin-svg-icons/client"
+    ],
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ]
+  }
+}

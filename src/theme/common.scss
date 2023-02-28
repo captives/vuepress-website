@@ -1,0 +1,129 @@
+@use 'sass:color';
+
+.text {
+    &-center {
+        text-align: center;
+    }
+
+    &-primary {
+        color: var(--color);
+
+        &.underline {
+            border-bottom: 1px solid var(--color);
+        }
+    }
+
+    &-info {
+        color: var(--font-color);
+
+        &.underline {
+            border-bottom: 1px solid var(--font-color);
+        }
+    }
+
+    &-error {
+        color: var(--danger-color);
+
+        &.underline {
+            border-bottom: 1px solid var(--danger-color);
+        }
+    }
+
+    &-ellipsis {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        &.multiline {
+            white-space: normal;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; //data-value
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            word-break: break-all;
+        }
+    }
+}
+
+//2类5个方向4个尺寸边距样式
+@each $i in (10, 15, 20, 30, 40) {
+    @each $dir, $m, $p in ("", m, p), (-top, mt, pt), (-right, mr, pr), (-bottom, mb, pb), (-left, ml, pl) {
+        .#{$m}-#{$i} {
+            margin#{$dir}:#{$i}px;
+        }
+
+        .#{$p}-#{$i} {
+            padding#{$dir}:#{$i}px;
+        }
+    }
+}
+
+.h-justify {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__left {
+        @extend .h-justify;
+        justify-content: flex-start;
+    }
+
+    &__align {
+        @extend .h-justify;
+        justify-content: space-between;
+    }
+
+    &__right {
+        @extend .h-justify;
+        justify-content: flex-end;
+    }
+}
+
+.v-justify {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .scroller {
+        flex: 1;
+        overflow: auto;
+    }
+
+    &__top {
+        @extend .v-justify;
+        align-items: flex-start;
+    }
+
+    &__align {
+        @extend .v-justify;
+        align-items: center;
+    }
+
+    &__bottom {
+        @extend .v-justify;
+        align-items: flex-end;
+    }
+}
+
+.is-dot {
+    position: relative;
+
+    &::after {
+        position: absolute;
+        top: 2px;
+        left: 4px;
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--danger-color);
+        transform: translateY(-50%) translateX(100%);
+        transition: all .2s;
+    }
+}
+
+.cursor {
+    cursor: pointer;
+    user-select: none;
+}

@@ -1,0 +1,166 @@
+@import './palette.scss';
+@import './element-ui.scss';
+@import '@/theme/common.scss';
+
+:root {
+    --search-input-width: 10rem;
+    --content-width: 75%;
+    scroll-behavior: smooth;
+}
+
+// markdown content
+.page {
+    blockquote {
+        font-size: 0.75rem;
+    }
+
+    a,
+    strong,
+    em {
+        padding: 0 3px;
+
+        span {
+            margin-left: 5px;
+        }
+    }
+}
+
+
+.navbar {
+    .site-name {
+        text-transform: capitalize;
+    }
+}
+
+.tip-block {
+    color: $tip-block-color;
+    background-color: $tip-block-bg-color;
+    margin: 1rem 0;
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+    position: relative;
+    font-size: 0.85rem;
+
+    &.tip,
+    &.success,
+    &.warning,
+    &.danger {
+        border-color: $tip-block-border-color;
+        padding: .1rem 1.5rem;
+        border-left-width: .35rem;
+        border-left-style: solid;
+        min-height: 50px;
+
+        :first-child {
+            margin-top: 1rem;
+        }
+
+        :last-child {
+            margin-bottom: 1rem;
+        }
+
+        &::before {
+            width: 25px;
+            height: 25px;
+            left: -16px;
+            position: absolute;
+            top: 19px;
+        }
+
+        code {
+            background: none;
+        }
+    }
+
+    &.tip {
+        border-color: $tip-block-border-info-color;
+
+        code {
+            color: $tip-block-border-info-color;
+        }
+
+        &::before {
+            content: url(/assets/info.svg);
+        }
+    }
+
+    &.success {
+        border-color: $tip-block-border-success-color;
+
+        code {
+            color: $tip-block-border-success-color;
+        }
+
+        &::before {
+            content: url(/assets/bulb.svg);
+        }
+    }
+
+    &.warning {
+        border-color: $tip-block-border-warning-color;
+
+        code {
+            color: $tip-block-border-warning-color;
+        }
+
+        &::before {
+            content: url(/assets/warning.svg);
+        }
+    }
+
+    &.danger {
+        border-color: $tip-block-border-error-color;
+
+        code {
+            color: $tip-block-border-error-color;
+        }
+
+        &::before {
+            content: url(/assets/danger.svg);
+        }
+    }
+
+    &.details {
+        display: block;
+        position: relative;
+        border-radius: 2px;
+        margin: 1.6em 0;
+        padding: 1.6em;
+        min-height: inherit;
+        background-color: #eee;
+
+        summary {
+            outline: none;
+            cursor: pointer;
+            margin-top: 0;
+        }
+    }
+
+    span.title {
+        font-weight: 600;
+        display: block;
+    }
+}
+
+
+/* 修改滚动条样式-滚动条整体部分 */
+
+::-webkit-scrollbar {
+    width: 5px !important;
+    height: 5px !important;
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    background-color: rgba(125, 125, 125, 0.7);
+    box-shadow: none;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    background-color: rgba(125, 125, 125, 0.7);
+    box-shadow: none;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+}

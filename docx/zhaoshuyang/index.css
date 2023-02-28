@@ -1,0 +1,211 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+}
+
+ul.nav-bar {
+    width: 100%;
+    min-width: 21cm;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    background: #3f4160;
+    border-bottom: 1px solid #eee;
+}
+
+ul.nav-bar li a {
+    display: inline-block;
+    padding: 20px 10px;
+    text-decoration: none;
+    color: #FFF;
+}
+
+.page {
+    width: 21cm;
+    margin: 0 auto 5%;
+
+    /* border: 1px solid #eee; */
+}
+
+@media print {
+    ul.nav-bar {
+        display: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .page {
+        margin: 0px auto;
+    }
+}
+
+.header {
+    /* background: #10867a; */
+    color: #FFF;
+    display: flex;
+    padding: 20px 30px;
+    background: #3f4160;
+    font-size: 14px;
+}
+
+.header .introduce {
+    flex: 1;
+}
+
+.header .introduce .name {
+    font-family: "楷体";
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.header .contact span {
+    display: inline-flex;
+    align-items: end;
+    flex-direction: row;
+    margin-bottom: 10px;
+    line-height: 16px;
+}
+
+.header .contact span::before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background: url("images/phone.png") no-repeat center;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.header .contact span:last-child {}
+
+.header .contact span:last-child::before {
+    margin-left: 30px;
+    background: url("images/mail.png") no-repeat center;
+}
+
+.header img.picture {
+    width: 105px;
+}
+
+h1 {
+    margin: 20px 0 0;
+    height: 34px;
+    line-height: 34px;
+    color: #818ba3;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+small {
+    font-size: 12px;
+    font-weight: normal;
+    color: #999999;
+    padding-left: 5px;
+}
+
+h2 {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+}
+
+ol {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.work-header {
+    display: flex;
+    align-items: flex-end;
+    border-bottom: 1px solid #3f4160;
+    padding: 8px 5px;
+    margin-bottom: 16px;
+}
+
+.work-header .company {
+    flex: 1;
+    order: 1;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.work-header .title {
+    flex: 1;
+    order: 2;
+}
+
+.work-header .time {
+    order: 3;
+    width: 160px;
+    font-size: 12px;
+    text-align: right;
+}
+
+.introduce{
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 28px;
+}
+
+.work-desc {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 10px;
+    text-indent: 22px;
+}
+
+.work-item {
+    padding-left: 20px;
+    color: #333333;
+    font-size: 14px;
+    line-height: 26px;
+    margin-bottom: 20px;
+}
+
+.work-item ol {
+    margin-left: 20px;
+}
+
+.work-item h2:not(:first-child) {
+    margin-top: 20px;
+}
+
+.footer {}
+
+.footer ul, .footer li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.footer ul li {
+    padding: 5px 15px;
+    font-size: 14px;
+}
+
+.footer ul li span {
+    width: 100px;
+    display: inline-block;
+}
+
+.footer .desc {
+    padding-left: 10px;
+    line-height: 26px;
+    font-size: 14px;
+}
+
+.footer .desc small {
+    padding: 0;
+}
+
+html:lang(en) .work-header .company {
+    flex: 2;
+}
+
+html:lang(en) .work-header .title {
+    flex: 1;
+}

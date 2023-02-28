@@ -1,0 +1,33 @@
+{
+  "references": [
+    { "path": "./tsconfig.node.json" },
+    { "path": "./tsconfig.app.json" }
+  ],
+  "include": [
+    "package.json",
+    "config-*",
+    "config/**/*",
+    "vite.config.*",
+    "vitest.config.*",
+    "cypress.config.*",
+    "config-pwa.ts"
+  ],
+  "compilerOptions": {
+    "composite": true,
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "jsx": "preserve",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "lib": ["ESNext", "DOM"],
+    "skipLibCheck": true,
+    "noEmit": true,
+    "types": [
+      "node","vite/client"
+    ],
+  }
+}

@@ -1,0 +1,59 @@
+/* ==========================================================================================
+    设计规范
+============================================================================================= */
+$namespace: 'el-' !default;
+$state-prefix: "is-" !default;
+
+//font
+$font-size: 16px;
+
+//主题色蓝黑
+$color: #26252D;
+$blackColor: #44434F;
+$white: #FFFFFF;
+$activeColor: #A0A5C0;
+
+//警告色
+$errorColor: #f43874;
+// 基础色
+$baseColor: rgba(45, 55, 72, 1);
+//白色
+$whiteColor: #ffffff;
+//灰色
+$auxBlueColor: #A0A5C0;
+
+body {
+    --color: #26252D;
+    --color-reverse: #FFFFFF;
+    --font-family: "Source Sans Pro", sans-serif, "PingFang SC", "SourceHanSansCN-Normal", "Hiragino Sans GB", "noto sans", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial;
+    --font-color: #A0A5C0;
+    --danger-color: #F43874;
+    --success-color: #75D29C;
+    --page-background: #F4F5F7;
+    --page-padding: 30px;
+    --flow-item-background: rgba(160, 165, 192, .1);
+    --chart-item-background: rgba(160, 165, 192, .1);
+    --dialog-color-header: #A0A5C0;
+    --dialog-color-footer: #E5E5E5;
+    --el-color-text: #A0A5C0;
+    --el-color-primary: var(--color);
+    --el-border-color: #A0A5C0;
+    --el-border-color-alpha4: rgba(160, 165, 192, .4);
+    --el-border-color-alpha8: rgba(160, 165, 192, .8);
+    --el-list-color-alpha024: rgba(244, 56, 116, .024);
+    --el-border-radius-base: 10px;
+    --el-input-hover-border-color: var(--color);
+    --el-input-focus-border-color: var(--color);
+    --el-text-color-placeholder: var(--el-color-text);
+    --el-text-color-secondary: #A0A5C0;
+    --el-text-color-regular: var(--color);
+    --el-tabs-background-secondary: rgba(160, 165, 192, .2);
+    --backup-background: rgba(160, 165, 192, .1);
+    --split-color: #E5E5E5;
+    --scrollbar-thumb: rgba(160, 165, 192, .4);
+    --scrollbar-track: #C5CCD4;
+    --box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.12);
+    --el-color-success: #DFFAE5;
+    --el-color-error: #FCD0CF;
+    --el-color-info: #C5DCFA;
+}
