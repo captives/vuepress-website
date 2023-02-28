@@ -1,7 +1,7 @@
 ---
 home: true
 title: Home
-heroImage: ./assets/images/logo.svg
+heroImage: assets/images/logo.svg
 actions:
   - text: Get Started
     link: /guide

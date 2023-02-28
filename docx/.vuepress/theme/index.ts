@@ -2,7 +2,7 @@
 import navbar from "../config/navbar";
 
 module.exports = {
-    logo: '../assets/images/logo.svg',
+    logo: 'assets/images/logo.svg',
     repo: 'captives/captives.github.io',
     repoLabel: "Captives",
     docsDir: "docx",

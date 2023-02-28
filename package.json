@@ -7,8 +7,8 @@
     "serve": "vite",
     "build": "vite build",
     "doc": "vuepress dev docx",
-    "build:doc": "vuepress build docx",
-    "build:all": "vuepress build docx && vite build",
+    "build:doc": "rm -rf docs && vuepress build docx",
+    "build:all": "rm -rf docs && vuepress build docx && vite build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
