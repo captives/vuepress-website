@@ -2,7 +2,7 @@
     <template v-if="readied">
         <h3>{{ title }}</h3>
         <slot name="video"
-              :src="localStream">
+              :stream="localStream">
             <video ref="localVideo"
                    :srcObject.prop="localStream"
                    autoplay></video>
@@ -11,6 +11,10 @@
         <slot name="error"
               :data="error"></slot>
         <slot></slot>
+
+        <slot name="list"
+              :list="list"
+              :data="{ audioInput, audioOutput, videoInput }"></slot>
     </template>
 </template>
 
@@ -23,7 +27,7 @@ const oss = inject('oss') as Function;
 
 const emits = defineEmits<{
     (e: 'error', error: ErrorEvent): void;
-    (e: 'created', created: boolean): void;
+    (e: 'ready', ready: boolean): void;
     (e: 'completed', list: Array<MediaDeviceInfo>, data: {
         audioInput: Array<MediaDeviceInfo>,
         audioOutput: Array<MediaDeviceInfo>,
@@ -44,18 +48,26 @@ const props = withDefaults(defineProps<{
 const { title } = toRefs(props);
 const readied = ref(false);
 const error = ref("");
-const localStream: Ref<MediaStream | null> = ref(null);
+const localStream: Ref<MediaStream | undefined> = ref();
 
 const list = reactive<Array<MediaDeviceInfo>>([]);
 const audioInput = reactive<Array<MediaDeviceInfo>>([]);
 const audioOutput = reactive<Array<MediaDeviceInfo>>([]);
 const videoInput = reactive<Array<MediaDeviceInfo>>([]);
 
+const close = () => {
+    localStream.value?.getTracks().forEach((track) => {
+        track.stop();
+    });
+};
+
 const gotDevices = (deviceInfos: Array<MediaDeviceInfo>) => {
     list.splice(0, list.length, ...deviceInfos);
     audioInput.splice(0, audioInput.length, ...deviceInfos.filter((device: MediaDeviceInfo) => device.kind === "audioinput"));
     audioOutput.splice(0, audioOutput.length, ...deviceInfos.filter((device: MediaDeviceInfo) => device.kind === "audiooutput"));
     videoInput.splice(0, videoInput.length, ...deviceInfos.filter((device: MediaDeviceInfo) => device.kind === "videoinput"));
+
+    close();
     emits('completed', list, { audioInput, audioOutput, videoInput });
 };
 
@@ -75,10 +87,22 @@ const listenStrem = (stream: MediaStream) => {
     });
 }
 
+const getUserMedia = (options: MediaStreamConstraints = { audio: true, video: true }) => {
+    navigator.mediaDevices.getUserMedia(options)
+        .then((stream: MediaStream) => {
+            console.log('localstream', stream);
+            listenStrem(stream);
+            localStream.value = stream;
+            emits('stream', stream);
+        })
+        .catch(handleError);
+}
+
+
 appendScript(oss('wertc-adapter/adapter.js'))
     .then(value => {
         readied.value = !!value;
-        emits('created', readied.value);
+        emits('ready', readied.value);
         navigator.mediaDevices.getUserMedia({ audio: true, video: true })
             .then((stream: MediaStream) => {
                 console.log('localstream', stream);
@@ -91,8 +115,9 @@ appendScript(oss('wertc-adapter/adapter.js'))
             .catch(handleError);
     })
     .catch(err => handleError);
+
+defineExpose({
+    close,
+    getUserMedia
+})
 </script>
-
-<style lang="sass" scoped>
-
-</style>

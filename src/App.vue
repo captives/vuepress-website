@@ -1,24 +1,27 @@
 <script setup lang="ts">
-import HelloWorld from './components/VueSite.vue';
-import AudioOutput from '@/views/webrtc/ChooseUserMedia.vue';
-
+import WebRTCSample from '@/views/webrtc/03ChooseUserMedia.vue';
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
+  <div class="banner">
+    <a href="#" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>
-    <a href="https://vuejs.org/" target="_blank">
+    <a href="#" target="_blank">
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <HelloWorld msg="Vite + Vue" />
   <hr>
-  <AudioOutput></AudioOutput>
+  <WebRTCSample></WebRTCSample>
 </template>
 
 <style scoped>
+.banner{
+    text-align: center;
+    height: 100vh;
+    padding-top: 30vh;
+  }
+
 .logo {
   height: 6em;
   padding: 1.5em;

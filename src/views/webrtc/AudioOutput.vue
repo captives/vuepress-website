@@ -29,7 +29,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { useDevices } from '@/hooks/webrtc';
+import { useDevices } from './hooks/webrtc';
 import WebRTC from './WebRTC.vue';
 
 const { audioOutput, playback } = useDevices();
