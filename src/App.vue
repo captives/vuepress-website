@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import WebRTCSample from '@/views/webrtc/03ChooseUserMedia.vue';
+import WebRTCSample from '@/views/webrtc/08MediaStreamVisualizer.vue';
+// import CanvasSample from '@/views/web/CanvasSample3DForest.vue';
 </script>
 
 <template>
@@ -12,6 +13,7 @@ import WebRTCSample from '@/views/webrtc/03ChooseUserMedia.vue';
     </a>
   </div>
   <hr>
+  <!-- <CanvasSample></CanvasSample> -->
   <WebRTCSample></WebRTCSample>
 </template>
 

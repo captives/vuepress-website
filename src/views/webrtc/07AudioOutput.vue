@@ -1,13 +1,15 @@
 <template>
-    <WebRTC title="选择输出设备">
+    <WebRTC title="音频输出到指定设备">
         <URLInput v-model="url"
                   :list="$videoList"></URLInput>
-        <video ref="videoElement"
-               class="mt-30 mb-30 video-item"
-               :src="$oss(url)"
-               controls
-               loop
-               autoplay></video>
+
+        <template #video>
+            <VideoPlayer :src="$oss(url)"
+                         class="mt-20"
+                         autoplay
+                         loop
+                         @canplay="videoCanplayHandler"></VideoPlayer>
+        </template>
 
         <el-table :data="audioOutput"
                   width="100%">
@@ -30,11 +32,16 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useDevices } from './hooks/webrtc';
+
 import WebRTC from './WebRTC.vue';
 
 const { audioOutput, playback } = useDevices();
 const url = ref("");
-const videoElement = ref(null);
+
+const videoElement = ref<HTMLMediaElement>();
+const videoCanplayHandler = (event: Event, element?: HTMLMediaElement) => {
+    videoElement.value = element;
+}
 
 const changeDevice = (device: MediaDeviceInfo) => {
     if (device.kind === "audiooutput") {

@@ -30,11 +30,10 @@
                        label="操作">
         <template #default="{ row }">
           <el-tooltip class="item"
-                      effect="dark"
                       content="移除轨道"
-                      placement="left">
+                      placement="top">
             <el-link class="el-icon-minus"
-                     @click="removeTrack(scope.row)"></el-link>
+                     @click="removeTrack(row)">移除</el-link>
           </el-tooltip>
         </template>
       </el-table-column>

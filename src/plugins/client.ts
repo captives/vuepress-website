@@ -1,7 +1,7 @@
 import { App, AppConfig, defineAsyncComponent } from 'vue';
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
-import helper from "./helper";
+import helper from "../utils/helper";
 
 export default {
     install(app: App<AppConfig>, options?: any) {

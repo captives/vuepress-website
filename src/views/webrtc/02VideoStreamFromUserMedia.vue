@@ -5,22 +5,22 @@
         <template #video="{ stream }">
             <StreamPlayer :stream="stream"
                           :autoplay="true"></StreamPlayer>
-            <StreamTracks :value="stream"></StreamTracks>
+            <StreamTracks :value="stream"  class="mt-20"></StreamTracks>
         </template>
     </WebRTC>
 </template>
 
 <script lang="ts" setup>
-import { ref, type Ref, type PropType } from 'vue';
+import { ref } from 'vue';
 import WebRTC from './WebRTC.vue';
 import StreamPlayer from './components/StreamPlayer.vue';
 import StreamTracks from './components/StreamTracks.vue';
 
-const webrtc = ref();
+const webrtc = ref<typeof WebRTC>();
 
 const webrtcCompletd = (list: Array<MediaDeviceInfo>) => {
     console.log('stream player completed', list);
-    webrtc.value.getUserMedia({
+    webrtc.value?.getUserMedia({
         audio: true,
         video: {
             width: { exact: 720 },

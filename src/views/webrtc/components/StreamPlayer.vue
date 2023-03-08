@@ -1,6 +1,7 @@
 <template>
     <video class="video-item"
            :autoplay="autoplay"
+           controls
            :srcObject.prop="stream"
            @loadedmetadata.prop="loadedMetaDataHandler"></video>
 </template>
@@ -27,8 +28,12 @@ const loadedMetaDataHandler = () => {
 </script>
 
 <style lang="scss" scoped>
+
 .video-item {
+    height: 270px;
+    width: 480px;
     background: #333;
     margin: 0 auto;
+    max-width: 100%;
 }
 </style>

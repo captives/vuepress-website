@@ -5,11 +5,11 @@
     <template #video="{ stream }">
       <StreamPlayer :stream="stream"
                     :autoplay="true"></StreamPlayer>
-      <StreamTracks :value="stream"></StreamTracks>
+      <StreamTracks :value="stream" class="mt-20"></StreamTracks>
     </template>
 
     <template #list="{ data }">
-      <el-space :size="50">
+      <el-space :size="50" class="mb-20">
         <template #default>
           <el-select v-model="videoInput"
                      placeholder="请选择摄像头"
@@ -47,7 +47,7 @@ import WebRTC from './WebRTC.vue';
 import StreamPlayer from './components/StreamPlayer.vue';
 import StreamTracks from './components/StreamTracks.vue';
 
-const webrtc = ref();
+const webrtc = ref<typeof WebRTC>();
 const audioInput = ref<string | undefined>();
 const audioOutput = ref<string | undefined>();
 const videoInput = ref<string | undefined>();
@@ -55,7 +55,7 @@ const videoInput = ref<string | undefined>();
 const webrtcCompletd = (list: Array<MediaDeviceInfo>, data: any) => {
 
   console.log('stream player completed', list);
-  webrtc.value.getUserMedia({
+  webrtc.value?.getUserMedia({
     audio: true,
     video: {
       width: { exact: 720 },
@@ -79,7 +79,7 @@ const deviceChangeHandler = () => {
   };
 
   webrtc.value?.close();
-  webrtc.value.getUserMedia(constraints);
+  webrtc.value?.getUserMedia(constraints);
 }
 </script>
 
@@ -88,6 +88,5 @@ const deviceChangeHandler = () => {
   height: 270px;
   width: 480px;
   background: #333;
-  margin-right: 10px;
 }
 </style>
