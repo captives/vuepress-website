@@ -485,11 +485,13 @@ alias: {
 
 图片资源，可以如下使用：
 ```md
-![vuepress](@/assets/hero.png)
+![vuepress](@/assets/vue.svg)
+![vuepress](@/assets/vite.svg)
 ```
 即可如下呈现出来
 
-![vuepress](@/assets/hero.png)
+![vuepress](@/assets/vue.svg)
+![vuepress](@/assets/vite.svg)
 
 文章参考[插件API > 开发Hooks > alias](https://v2.vuepress.vuejs.org/zh/reference/plugin-api.html#alias)
 [静态资源 > 依赖包和路径别名](https://v2.vuepress.vuejs.org/zh/guide/assets.html)
