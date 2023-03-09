@@ -1,0 +1,4 @@
+const data = JSON.parse('{"key":"v-5ce3212b","path":"/guide/html5/window-event.html","title":"window 浏览器页面事件","lang":"guide","frontmatter":{},"headers":[{"level":2,"title":"浏览器选项卡获取焦点和失去焦点","slug":"浏览器选项卡获取焦点和失去焦点","link":"#浏览器选项卡获取焦点和失去焦点","children":[]},{"level":2,"title":"浏览器选项卡关闭","slug":"浏览器选项卡关闭","link":"#浏览器选项卡关闭","children":[]},{"level":2,"title":"页面开始打印/打印结束后事件","slug":"页面开始打印-打印结束后事件","link":"#页面开始打印-打印结束后事件","children":[]},{"level":2,"title":"其它页面更改存储触发","slug":"其它页面更改存储触发","link":"#其它页面更改存储触发","children":[]}],"git":{"updatedTime":1677562854000,"contributors":[{"name":"seven.zhao","email":"seven.zhao@kaibo.ai","commits":1}]},"filePathRelative":"guide/html5/window-event.md"}');
+export {
+  data
+};

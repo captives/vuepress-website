@@ -1,0 +1,4 @@
+const data = JSON.parse('{"key":"v-2b0c4e6d","path":"/guide/website-resource.html","title":"开发工具收藏","lang":"guide","frontmatter":{},"headers":[{"level":2,"title":"常用前端库","slug":"常用前端库","link":"#常用前端库","children":[{"level":3,"title":"xtermjs","slug":"xtermjs","link":"#xtermjs","children":[]},{"level":3,"title":"webssh","slug":"webssh","link":"#webssh","children":[]},{"level":3,"title":"handlebars","slug":"handlebars","link":"#handlebars","children":[]},{"level":3,"title":"Metalsmith","slug":"metalsmith","link":"#metalsmith","children":[]}]},{"level":2,"title":"后端","slug":"后端","link":"#后端","children":[]},{"level":2,"title":"前端","slug":"前端","link":"#前端","children":[]},{"level":2,"title":"工具","slug":"工具","link":"#工具","children":[]}],"git":{"updatedTime":1677562854000,"contributors":[{"name":"seven.zhao","email":"seven.zhao@kaibo.ai","commits":1}]},"filePathRelative":"guide/website-resource.md"}');
+export {
+  data
+};

@@ -1,0 +1,4 @@
+const data = JSON.parse('{"key":"v-2736b124","path":"/guide/javascript/lodash-number.html","title":"Lodash 数字 Number","lang":"guide","frontmatter":{},"headers":[{"level":2,"title":"数字","slug":"数字","link":"#数字","children":[{"level":3,"title":"_.clamp(number, [lower], upper)","slug":"clamp-number-lower-upper","link":"#clamp-number-lower-upper","children":[]},{"level":3,"title":"_.inRange(number, [start = 0], end)","slug":"inrange-number-start-0-end","link":"#inrange-number-start-0-end","children":[]},{"level":3,"title":"_.random([lower = 0], [upper = 1], [floating])","slug":"random-lower-0-upper-1-floating","link":"#random-lower-0-upper-1-floating","children":[]}]}],"git":{"updatedTime":1677562854000,"contributors":[{"name":"seven.zhao","email":"seven.zhao@kaibo.ai","commits":1}]},"filePathRelative":"guide/javascript/lodash-number.md"}');
+export {
+  data
+};

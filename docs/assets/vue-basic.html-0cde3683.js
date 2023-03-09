@@ -1,0 +1,4 @@
+const data = JSON.parse('{"key":"v-265c7da7","path":"/guide/vue/vue-basic.html","title":"Vue 知识点总结","lang":"guide","frontmatter":{},"headers":[{"level":2,"title":"vue 父子组件通讯","slug":"vue-父子组件通讯","link":"#vue-父子组件通讯","children":[{"level":3,"title":"方式一：事件类型","slug":"方式一-事件类型","link":"#方式一-事件类型","children":[]},{"level":3,"title":"方式二：provide和inject 提供注入（高阶组件库使用）。","slug":"方式二-provide和inject-提供注入-高阶组件库使用-。","link":"#方式二-provide和inject-提供注入-高阶组件库使用-。","children":[]},{"level":3,"title":"方式三：原型链","slug":"方式三-原型链","link":"#方式三-原型链","children":[]},{"level":3,"title":"方式四：Vuex 状态管理","slug":"方式四-vuex-状态管理","link":"#方式四-vuex-状态管理","children":[]},{"level":3,"title":"方式五：attrs和listeners","slug":"方式五-attrs和listeners","link":"#方式五-attrs和listeners","children":[]}]}],"git":{"updatedTime":1677562854000,"contributors":[{"name":"seven.zhao","email":"seven.zhao@kaibo.ai","commits":1}]},"filePathRelative":"guide/vue/vue-basic.md"}');
+export {
+  data
+};

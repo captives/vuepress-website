@@ -1,0 +1,4 @@
+const data = JSON.parse('{"key":"v-b7f1fa8a","path":"/guide/vue/vue-event.html","title":"Vue Event","lang":"guide","frontmatter":{},"headers":[{"level":2,"title":"Event","slug":"event","link":"#event","children":[{"level":3,"title":"JavaScript事件的三阶段","slug":"javascript事件的三阶段","link":"#javascript事件的三阶段","children":[]}]},{"level":2,"title":"事件修饰符","slug":"事件修饰符","link":"#事件修饰符","children":[]},{"level":2,"title":"自定义事件","slug":"自定义事件","link":"#自定义事件","children":[{"level":3,"title":"验证抛出的事件","slug":"验证抛出的事件","link":"#验证抛出的事件","children":[]}]}],"git":{"updatedTime":1677562854000,"contributors":[{"name":"seven.zhao","email":"seven.zhao@kaibo.ai","commits":1}]},"filePathRelative":"guide/vue/vue-event.md"}');
+export {
+  data
+};

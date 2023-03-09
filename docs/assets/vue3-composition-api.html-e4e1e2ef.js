@@ -1,0 +1,4 @@
+const data = JSON.parse('{"key":"v-43e0e56d","path":"/guide/vue/vue3-composition-api.html","title":"Vue3 组合式API(Composition API)","lang":"guide","frontmatter":{},"headers":[{"level":2,"title":"setup 组件选项","slug":"setup-组件选项","link":"#setup-组件选项","children":[]},{"level":2,"title":"带ref的响应式变量","slug":"带ref的响应式变量","link":"#带ref的响应式变量","children":[]},{"level":2,"title":"在setup内注册生命周期钩子","slug":"在setup内注册生命周期钩子","link":"#在setup内注册生命周期钩子","children":[]},{"level":2,"title":"watch响应式更改","slug":"watch响应式更改","link":"#watch响应式更改","children":[]},{"level":2,"title":"独立的 computed 属性","slug":"独立的-computed-属性","link":"#独立的-computed-属性","children":[]},{"level":2,"title":"defineProps 和 defineEmits","slug":"defineprops-和-defineemits","link":"#defineprops-和-defineemits","children":[]}],"git":{"updatedTime":1677562854000,"contributors":[{"name":"seven.zhao","email":"seven.zhao@kaibo.ai","commits":1}]},"filePathRelative":"guide/vue/vue3-composition-api.md"}');
+export {
+  data
+};

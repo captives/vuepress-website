@@ -1,0 +1,4 @@
+const data = JSON.parse('{"key":"v-5efb549b","path":"/guide/frontend.html","title":"优秀学习资源","lang":"guide","frontmatter":{},"headers":[{"level":2,"title":"常用前端库","slug":"常用前端库","link":"#常用前端库","children":[{"level":3,"title":"xtermjs","slug":"xtermjs","link":"#xtermjs","children":[]},{"level":3,"title":"webssh","slug":"webssh","link":"#webssh","children":[]},{"level":3,"title":"handlebars","slug":"handlebars","link":"#handlebars","children":[]},{"level":3,"title":"Metalsmith","slug":"metalsmith","link":"#metalsmith","children":[]},{"level":3,"title":"fullcalendar","slug":"fullcalendar","link":"#fullcalendar","children":[]}]},{"level":2,"title":"优秀博文","slug":"优秀博文","link":"#优秀博文","children":[]}],"git":{"updatedTime":1677562854000,"contributors":[{"name":"seven.zhao","email":"seven.zhao@kaibo.ai","commits":1}]},"filePathRelative":"guide/frontend.md"}');
+export {
+  data
+};

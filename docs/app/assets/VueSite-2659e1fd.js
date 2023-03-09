@@ -1,0 +1,1 @@
+import{a,b as o,t as s,r,o as n}from"./index-f3b8078e.js";const i={__name:"VueSite",setup(l){const e="这是全局自定义组件"+new Date().toLocaleDateString();return(t,c)=>(n(),a("div",null,[o("b",null,s(e)),r(t.$slots,"default")]))}};export{i as default};
