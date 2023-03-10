@@ -14,6 +14,9 @@
                 </el-col>
             </el-row>
         </template>
+        <template #error="{ data }">
+            <MediaError :error="data.error"></MediaError>
+        </template>
         <template #list="{ support }">
             <div class="mb-20">
                 <el-select v-model="selectValue" placeholder="请选择共享源" :disabled="!support.supDisplayMedia">
@@ -33,6 +36,7 @@ import { ref } from 'vue';
 import WebRTC from './WebRTC.vue';
 import StreamPlayer from './components/StreamPlayer.vue';
 import StreamTracks from './components/StreamTracks.vue';
+import MediaError from './components/MediaError.vue';
 import StreamRecorder from './components/StreamRecorder.vue';
 
 const webrtc = ref<typeof WebRTC>();
@@ -45,15 +49,15 @@ const options = [
 ];
 
 const startHandler = () => {
-  const options: MediaStreamConstraints = { video: true, audio: true };
-  if (selectValue.value !== 'default' && !!selectValue.value) {
-    //@ts-ignore;
-    options.video = { displaySurface: selectValue.value };
-  }
-  webrtc.value?.getDisplayMedia(options);
+    const options: MediaStreamConstraints = { video: true, audio: true };
+    if (selectValue.value !== 'default' && !!selectValue.value) {
+        //@ts-ignore;
+        options.video = { displaySurface: selectValue.value };
+    }
+    webrtc.value?.getDisplayMedia(options);
 }
 
 const stopHandler = () => {
-  webrtc.value?.close();
+    webrtc.value?.close();
 }
 </script>
