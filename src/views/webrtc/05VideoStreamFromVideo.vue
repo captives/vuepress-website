@@ -50,6 +50,3 @@ const videoCanplayHandler = (event: Event, videoElement?: HTMLMediaElement) => {
 }
 
 </script>
-
-  
-  

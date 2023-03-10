@@ -1,6 +1,7 @@
 <template>
     <video class="video-item"
            :autoplay="autoplay"
+           :muted="muted"
            controls
            :srcObject.prop="stream"
            @loadedmetadata.prop="loadedMetaDataHandler"></video>
@@ -14,9 +15,11 @@ const emit = defineEmits<{
 const props = withDefaults(defineProps<{
     stream?: MediaStream,
     autoplay: boolean,
+    muted?:boolean
 }>(), {
     stream: undefined,
     autoplay: false,
+    muted:false
 });
 
 const { stream, autoplay } = toRefs(props);

@@ -17,11 +17,11 @@
                 :sm="24"
                 :md="12">
             <el-divider content-position="left">Audio Stream Volume</el-divider>
+            AudioContext.createScriptProcessor() 已经弃用，此示例搁置。
+            <br>
+            后续研究 <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/AudioContext"
+               target="_blank">Audio Workers</a>
 
-            <a>
-                AudioContext.createScriptProcessor() 已经弃用，此示例搁置。
-                后续研究 Audio Workers
-            </a>
             <el-form v-if="soundMeter"
                      label-width="80px">
                 <el-form-item label="Instant:">
@@ -45,7 +45,9 @@
         </el-col>
     </el-row>
 
-    <StreamTracks v-model="videoStream"></StreamTracks>
+    <StreamTracks :value="videoStream"
+                  class="mt-20"></StreamTracks>
+
     <MediaError :error="error"></MediaError>
 </template>
 
