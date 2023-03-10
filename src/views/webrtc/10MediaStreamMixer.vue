@@ -38,8 +38,7 @@
         <el-col class="center" :xs="24" :sm="24" :md="12">
             <el-divider content-position="left">Remix stream & Recorder</el-divider>
             <StreamPlayer :stream="remixStream" :muted="true" :autoplay="true"></StreamPlayer>
-            <StreamRecorder :stream="remixStream">
-            </StreamRecorder>
+            <StreamRecorder :stream="remixStream"></StreamRecorder>
         </el-col>
         <el-col class="center" :xs="24" :sm="24" :md="12">
             <el-divider content-position="left">Tracks</el-divider>

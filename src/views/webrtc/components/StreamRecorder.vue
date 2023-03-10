@@ -1,15 +1,16 @@
 <template>
-    <slot></slot>
-    <el-row v-if="stream" class="center">
+    <el-row v-if="stream">
         <el-col v-if="recording">
             <el-tag type="danger">Rec ....</el-tag>
             <small class="ml-20 mr-20">{{ recordBlobs.length }}</small>
             <el-button type="danger" size="mini" @click="stopRecoder">停止录制</el-button>
         </el-col>
         <el-col v-else>
-            <el-button type="success" size="mini" @click="startRecoding">开始录制</el-button>
-            <el-button type="primary" size="mini" @click="playHandler">预览</el-button>
-            <el-button v-if="recordBlobs.length" type="danger" size="mini" @click="downloadfile">下载视频</el-button>
+            <template v-if="recordBlobs.length">
+                <el-button type="primary" size="mini" @click="playHandler">预览</el-button>
+                <el-button type="danger" size="mini" @click="downloadfile">下载视频</el-button>
+            </template>
+            <el-button v-else type="success" size="mini" @click="startRecoding">开始录制</el-button>
         </el-col>
     </el-row>
 </template>
@@ -94,6 +95,7 @@ const downloadfile = () => {
     if (recordBlobs && recordBlobs.length) {
         const blob = new Blob(recordBlobs, { type: "video/webm" });
         const url = window.URL.createObjectURL(blob);
+        
         const a = document.createElement("a");
         a.style.display = "none";
         a.href = url;
@@ -103,7 +105,6 @@ const downloadfile = () => {
         setTimeout(() => {
             document.body.removeChild(a);
             window.URL.revokeObjectURL(url);
-            recordBlobs.length = 0;
         }, 100);
     }
 }

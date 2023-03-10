@@ -62,6 +62,7 @@ const close = () => {
     localStream.value?.getTracks().forEach((track) => {
         track.stop();
     });
+    localStream.value = undefined;
 };
 
 const gotDevices = (deviceInfos: Array<MediaDeviceInfo>) => {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import WebRTCSample from '@/views/webrtc/12AudioVideoCall.vue';
+import WebRTCSample from '@/views/webrtc/14DisplayMediaRecorder.vue';
 // import CanvasSample from '@/views/web/CanvasSample3DForest.vue';
 </script>
 
