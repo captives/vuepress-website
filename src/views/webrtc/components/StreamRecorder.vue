@@ -32,19 +32,40 @@ const recording = ref<boolean>(false);
 const mediaRecorder = ref<MediaRecorder>();
 const recordBlobs = reactive<Array<Blob>>([]);
 
+/**
+ * 将blob文件转换成二进制流发送到服务器上
+ */
+const blobToBinaryString = (value: Blob) => {
+    const reader = new FileReader();
+    reader.onerror = (error) => {
+        console.error("媒体流转换到blob数据失败", error);
+    };
+
+    reader.onloadend = () => {
+        // 发送到服务器端进行存储为文件
+        // ws.sendMessage({ event: "REC_BLOB", blob: reader.result, uid: "user.id" });
+    };
+    reader.readAsBinaryString(value);
+}
+
 const startRecoding = () => {
-    var options = { mimeType: "video/webm;codecs=vp9" };
+    var options = { mimeType: "video/webm;codecs=h264" };
     if (!MediaRecorder.isTypeSupported(options.mimeType)) {
         console.log(options.mimeType + " is not Supported");
-        options = { mimeType: "video/webm;codecs=vp8" };
+        options = { mimeType: "video/webm;codecs=vp9" };
 
         if (!MediaRecorder.isTypeSupported(options.mimeType)) {
             console.log(options.mimeType + " is not Supported");
-            options = { mimeType: "video/webm" };
+            options = { mimeType: "video/webm;codecs=vp8" };
 
             if (!MediaRecorder.isTypeSupported(options.mimeType)) {
                 console.log(options.mimeType + " is not Supported");
-                options = { mimeType: "" };
+                options = { mimeType: "video/webm" };
+
+                if (!MediaRecorder.isTypeSupported(options.mimeType)) {
+                    console.log(options.mimeType + " is not Supported");
+                    options = { mimeType: "" };
+                }
             }
         }
     }
@@ -72,6 +93,7 @@ const startRecoding = () => {
 
             mediaRecorder.value.addEventListener('dataavailable', function (event: BlobEvent) {
                 if (event.data && event.data.size > 0) {
+                    blobToBinaryString(event.data);
                     recordBlobs.push(event.data);
                 }
             });
@@ -95,7 +117,7 @@ const downloadfile = () => {
     if (recordBlobs && recordBlobs.length) {
         const blob = new Blob(recordBlobs, { type: "video/webm" });
         const url = window.URL.createObjectURL(blob);
-        
+
         const a = document.createElement("a");
         a.style.display = "none";
         a.href = url;
