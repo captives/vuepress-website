@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import WebRTCSample from '@/views/webrtc/03ChooseUserMediaForCameraResolution.vue';
+import WebRTCSample from '@/views/webrtc/index.vue';
 // import CanvasSample from '@/views/web/CanvasSample3DForest.vue';
 </script>
 

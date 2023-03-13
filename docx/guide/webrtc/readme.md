@@ -2,9 +2,8 @@
 
 # 获取设备列表
 
-使用以下代码获取设备列表
-<ChooseUserMedia></ChooseUserMedia>
+<WebRTCSample></WebRTCSample>
 
 <script lang="ts" setup>
-    import ChooseUserMedia from '@/views/webrtc/03ChooseUserMedia.vue';
+    import WebRTCSample from '@/views/webrtc/index.vue';
 </script>

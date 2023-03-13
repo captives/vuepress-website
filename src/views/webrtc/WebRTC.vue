@@ -1,25 +1,19 @@
 <template>
     <template v-if="readied">
         <h3>{{ title }}</h3>
-        <slot name="list"
-              :list="list"
-              :data="{ audioInput, audioOutput, videoInput }"
-              :support="{supUserMedia, supDisplayMedia}"></slot>
+        <slot name="list" :list="list" :data="{ audioInput, audioOutput, videoInput }"
+              :support="{ supUserMedia, supDisplayMedia }"></slot>
 
-        <slot name="video"
-              :stream="localStream">
-            <video ref="localVideo"
-                   :srcObject.prop="localStream"
-                   autoplay></video>
+        <slot name="video" :stream="localStream">
+            <video ref="localVideo" :srcObject.prop="localStream" autoplay></video>
         </slot>
         <slot></slot>
-        <slot name="error"
-              :data="{ error, supUserMedia, supDisplayMedia}"></slot>
+        <slot name="error" :data="{ error, supUserMedia, supDisplayMedia }"></slot>
     </template>
 </template>@/utils/helper
 
 <script setup lang="ts">
-import { ref, type Ref, reactive, inject, toRefs } from 'vue';
+import { ref, type Ref, reactive, inject, toRefs, onUnmounted } from 'vue';
 import helper from '@/utils/helper';
 
 const { appendScript } = helper;
@@ -63,6 +57,7 @@ const close = () => {
         track.stop();
     });
     localStream.value = undefined;
+    console.log('rtc closed !');
 };
 
 const gotDevices = (deviceInfos: Array<MediaDeviceInfo>) => {
@@ -75,7 +70,7 @@ const gotDevices = (deviceInfos: Array<MediaDeviceInfo>) => {
     emits('completed', list, { audioInput, audioOutput, videoInput });
 };
 
-const handleError = (err:OverconstrainedError | DOMException | ErrorEvent) => {
+const handleError = (err: OverconstrainedError | DOMException | ErrorEvent) => {
     console.log("Error #", err);
     error.value = err;
     emits('error', err);
@@ -105,9 +100,9 @@ const getUserMedia = (options: MediaStreamConstraints = { audio: true, video: tr
 
 const getDisplayMedia = (options: DisplayMediaStreamConstraints = { audio: true, video: true }) => {
     error.value = undefined;
-    if(supDisplayMedia.value){
+    if (supDisplayMedia.value) {
         navigator.mediaDevices.getDisplayMedia(options)
-            .then((stream)=>{
+            .then((stream) => {
                 localStream.value = stream;
             })
             .catch(handleError);
@@ -143,9 +138,11 @@ appendScript(oss('wertc-adapter/adapter.js'))
     })
     .catch(err => handleError);
 
+onUnmounted(() => close());
+
 defineExpose({
     close,
     getUserMedia,
     getDisplayMedia
-})
+});
 </script>

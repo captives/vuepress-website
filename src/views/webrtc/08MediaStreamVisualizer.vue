@@ -1,29 +1,16 @@
 <template>
-    <URLInput :list="$videoList"
-              v-model="url"></URLInput>
-
-    <VideoPlayer :src="$oss(url)"
-                 class="mt-20"
-                 autoplay
-                 loop
-                 @canplay="videoCanplayHandler"></VideoPlayer>
-    <StreamPlayer :stream="videoStream"
-                  class="mt-20"
-                  muted
-                  :autoplay="true"></StreamPlayer>
+    <URLInput :list="$videoList" v-model="url"></URLInput>
+    <VideoPlayer :src="$oss(url)" class="mt-20" autoplay loop @canplay="videoCanplayHandler"></VideoPlayer>
+    <StreamPlayer :stream="videoStream" class="mt-20" muted :autoplay="true"></StreamPlayer>
     <div class="container">
-        <canvas ref="canvas"
-                calss="canvas"></canvas>
+        <canvas ref="canvas" calss="canvas"></canvas>
     </div>
-
-    <StreamTracks :value="videoStream"
-                  class="mt-20"></StreamTracks>
-
+    <StreamTracks :value="videoStream" class="mt-20"></StreamTracks>
     <MediaError :error="error"></MediaError>
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted } from 'vue';
+import { ref } from 'vue';
 import StreamPlayer from './components/StreamPlayer.vue';
 import StreamTracks from './components/StreamTracks.vue';
 import MediaError from './components/MediaError.vue';

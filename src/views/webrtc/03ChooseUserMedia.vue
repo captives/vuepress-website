@@ -3,11 +3,20 @@
           title="动态选择用户设备"
           @completed="webrtcCompletd">
     <template #video="{ stream }">
-      <StreamPlayer :stream="stream"
-                    :autoplay="true"></StreamPlayer>
-      <StreamTracks :value="stream" class="mt-20"></StreamTracks>
+      <el-row :gutter="50">
+        <el-col class="center" :xs="24" :sm="24" :md="12">
+          <el-divider content-position="left">User media</el-divider>
+          <StreamPlayer :stream="stream" :autoplay="true"></StreamPlayer>
+        </el-col>
+        <el-col class="center" :xs="24" :sm="24" :md="12">
+          <el-divider content-position="left">Track</el-divider>
+          <StreamTracks :value="stream" class="mt-20"></StreamTracks>
+        </el-col>
+      </el-row>
     </template>
-
+    <template #error="{ data }">
+      <MediaError :error="data.error"></MediaError>
+    </template>
     <template #list="{ data }">
       <el-space :size="50" class="mb-20">
         <template #default>
@@ -46,6 +55,7 @@ import { ref } from 'vue';
 import WebRTC from './WebRTC.vue';
 import StreamPlayer from './components/StreamPlayer.vue';
 import StreamTracks from './components/StreamTracks.vue';
+import MediaError from './components/MediaError.vue';
 
 const webrtc = ref<typeof WebRTC>();
 const audioInput = ref<string | undefined>();
