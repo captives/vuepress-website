@@ -26,7 +26,7 @@ const { appendScript } = helper;
 const oss = inject('oss') as Function;
 
 const emits = defineEmits<{
-    (e: 'error', error: DOMException | ErrorEvent): void;
+    (e: 'error', error: OverconstrainedError | DOMException | ErrorEvent): void;
     (e: 'ready', ready: boolean): void;
     (e: 'completed', list: Array<MediaDeviceInfo>, data: {
         audioInput: Array<MediaDeviceInfo>,
@@ -47,7 +47,7 @@ const props = withDefaults(defineProps<{
 
 const { title } = toRefs(props);
 const readied = ref(false);
-const error = ref<DOMException | ErrorEvent>();
+const error = ref<OverconstrainedError | DOMException | ErrorEvent>();
 const supUserMedia = ref<boolean>(false);
 const supDisplayMedia = ref<boolean>(false);
 const localStream: Ref<MediaStream | undefined> = ref();
@@ -75,8 +75,8 @@ const gotDevices = (deviceInfos: Array<MediaDeviceInfo>) => {
     emits('completed', list, { audioInput, audioOutput, videoInput });
 };
 
-const handleError = (err:DOMException | ErrorEvent) => {
-    console.log("Error #", err.message);
+const handleError = (err:OverconstrainedError | DOMException | ErrorEvent) => {
+    console.log("Error #", err);
     error.value = err;
     emits('error', err);
 };

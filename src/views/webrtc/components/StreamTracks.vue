@@ -1,6 +1,5 @@
 <template>
-  <el-table :data="tableData"
-            stripe>
+  <el-table :data="tableData" stripe>
     <el-table-column label="媒体流ID">
       <el-table-column label="名称">
         <template #default="{ row }">
@@ -10,8 +9,7 @@
     </el-table-column>
 
     <el-table-column :label="value && value.id">
-      <el-table-column prop="kind"
-                       label="类型"></el-table-column>
+      <el-table-column prop="kind" label="类型"></el-table-column>
       <el-table-column label="id">
         <template #default="{ row }">
           {{ row.id.substr(0, 8) }}...
@@ -26,19 +24,17 @@
       <el-table-column label="muted">
         <template #default="{ row }">{{ row.muted }}</template>
       </el-table-column>
-      <el-table-column v-if="edited"
-                       label="操作">
+      <el-table-column v-if="edited" label="操作">
         <template #default="{ row }">
-          <el-tooltip class="item"
-                      content="移除轨道"
-                      placement="top">
-            <el-link class="el-icon-minus"
-                     @click="removeTrack(row)">移除</el-link>
+          <el-tooltip class="item" content="移除轨道" placement="top">
+            <el-link class="el-icon-minus" @click="removeTrack(row)">移除</el-link>
           </el-tooltip>
         </template>
       </el-table-column>
       <el-table-column type="expand">
         <template #default="{ row }">
+          <StreamTrackSetup v-if="row.kind==='video'" :track="row"></StreamTrackSetup>
+
           <el-main class="table-expand">
             <h4>Base:</h4>
             <el-row>
@@ -47,24 +43,21 @@
             </el-row>
             <h4>Constraints:</h4>
             <el-row>
-              <el-col v-for="(item, key) in row.getConstraints()"
-                      :key="key"
-                      :span="12">{{ key }} :
-                {{ item }}</el-col>
+              <el-col v-for="(item, key) in row.getConstraints()" :key="key" :span="12">
+                {{ key }} : {{ item }}
+              </el-col>
             </el-row>
             <h4>Settings:</h4>
             <el-row>
-              <el-col v-for="(item, key) in row.getSettings()"
-                      :key="key"
-                      :span="12">{{ key }} :
-                {{ item }}</el-col>
+              <el-col v-for="(item, key) in row.getSettings()" :key="key" :span="12">
+                {{ key }} : {{ item }}
+              </el-col>
             </el-row>
             <h4>Capabilities:</h4>
             <el-row>
-              <el-col v-for="(item, key) in row.getCapabilities()"
-                      :key="key"
-                      :span="12">{{ key }} :
-                {{ item }}</el-col>
+              <el-col v-for="(item, key) in row.getCapabilities()" :key="key" :span="12">
+                {{ key }} : {{ item }}
+              </el-col>
             </el-row>
           </el-main>
         </template>
@@ -73,8 +66,10 @@
   </el-table>
 </template>
 <script>
+import StreamTrackSetup from './StreamTrackSetup.vue';
 export default {
   name: "StreamTracks",
+  components: {StreamTrackSetup},
   props: {
     value: {
       type: MediaStream,
@@ -85,14 +80,14 @@ export default {
       default: false,
     },
   },
-  data () {
+  data() {
     return {
       id: null,
       tableData: [],
     };
   },
   watch: {
-    value (stream) {
+    value(stream) {
       this.id = stream.id;
       this.tableData = [];
       this.tableData = this.tableData.concat(
@@ -102,9 +97,8 @@ export default {
     },
   },
   methods: {
-    removeTrack (track) {
-      if (this.value)
-      {
+    removeTrack(track) {
+      if (this.value) {
         track.stop();
         this.value.removeTrack(track);
         console.log("remove track id", track.label, track.id);

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import WebRTCSample from '@/views/webrtc/04VideoStreamFromDisplayMedia.vue';
+import WebRTCSample from '@/views/webrtc/03ChooseUserMediaForCameraResolution.vue';
 // import CanvasSample from '@/views/web/CanvasSample3DForest.vue';
 </script>
 
@@ -18,11 +18,11 @@ import WebRTCSample from '@/views/webrtc/04VideoStreamFromDisplayMedia.vue';
 </template>
 
 <style scoped>
-.banner{
-    text-align: center;
-    height: 100vh;
-    padding-top: 30vh;
-  }
+.banner {
+  text-align: center;
+  height: 100vh;
+  padding-top: 30vh;
+}
 
 .logo {
   height: 6em;
@@ -30,9 +30,11 @@ import WebRTCSample from '@/views/webrtc/04VideoStreamFromDisplayMedia.vue';
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
 }
