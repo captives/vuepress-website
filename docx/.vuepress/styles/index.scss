@@ -2,12 +2,6 @@
 @import './element-ui.scss';
 @import '@/theme/common.scss';
 
-:root {
-    --search-input-width: 10rem;
-    --content-width: 75%;
-    scroll-behavior: smooth;
-}
-
 // markdown content
 .page {
     blockquote {
@@ -186,4 +180,10 @@
     box-shadow: none;
     -webkit-border-radius: 6px;
     border-radius: 6px;
+}
+
+.mermaid{
+    border-radius: 10px;
+    color: var(--mermaid-text-color);
+    background-color: var(--mermaid-background-color);
 }

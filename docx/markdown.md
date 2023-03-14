@@ -493,5 +493,14 @@ alias: {
 ![vuepress](@/assets/vue.svg)
 ![vuepress](@/assets/vite.svg)
 
+
+### 流程图标
+
+VSCode 支持
+- Markdown All in One
+- Markdown Preview Mermaid Support
+
+
+
 文章参考[插件API > 开发Hooks > alias](https://v2.vuepress.vuejs.org/zh/reference/plugin-api.html#alias)
 [静态资源 > 依赖包和路径别名](https://v2.vuepress.vuejs.org/zh/guide/assets.html)

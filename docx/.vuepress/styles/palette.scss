@@ -27,32 +27,45 @@ $tip-block-border-success-color : #42b983;
 $tip-block-border-warning-color : #f4cd00;
 $tip-block-border-error-color : #F56C6C;
 
-:root {
+html {
     // 断点
     --large-breakpoint: 64em;
     --medium-breakpoint: 42em;
+    --search-input-width: 10rem;
+    --content-width: 75%;
+    scroll-behavior: smooth;
 
     // 头部
-    --header-heading-color : #fff;
-    --header-bg-color : #159957;
-    --header-bg-color-secondary : #155799;
+    --header-heading-color: #fff;
+    --header-bg-color: #159957;
+    --header-bg-color-secondary: #155799;
     // 文本
-    --section-headings-color : #159957;
-    --body-text-color : #606c71;
-    --body-link-color : #1e6bb8;
-    --blockquote-text-color : #819198;
+    --section-headings-color: #159957;
+    --body-text-color: #606c71;
+    --body-link-color: #1e6bb8;
+    --blockquote-text-color: #819198;
     // 代码
-    --code-text-color : #f3f6fa;
+    --code-text-color: #f3f6fa;
     // 边框
-    --border-color : #dce6f0;
-    --table-border-color : #e9ebec;
-    --hr-border-color : #eff0f1;
+    --border-color: #dce6f0;
+    --table-border-color: #e9ebec;
+    --hr-border-color: #eff0f1;
     //提示块
-    --tip-block-color : #567482; //字体颜色
-    --tip-block-bg-color : #f3f6fa;
-    --tip-block-border-color : #dce6f0;
-    --tip-block-border-info-color : #007bff;
-    --tip-block-border-success-color : #42b983;
-    --tip-block-border-warning-color : #f4cd00;
-    --tip-block-border-error-color : #F56C6C;
+    --tip-block-color: #567482; //字体颜色
+    --tip-block-bg-color: #f3f6fa;
+    --tip-block-border-color: #dce6f0;
+    --tip-block-border-info-color: #007bff;
+    --tip-block-border-success-color: #42b983;
+    --tip-block-border-warning-color: #f4cd00;
+    --tip-block-border-error-color: #F56C6C;
+
+    //图表
+    --mermaid-text-color: #22272e;
+    --mermaid-background-color: rgba(96, 108, 103, .25);
+}
+
+html.dark {
+    //图表
+    --mermaid-text-color: #adbac7;
+    --mermaid-background-color: rgba(255, 255, 255, .25);
 }

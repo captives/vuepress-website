@@ -9,6 +9,7 @@ const __workdir = path.resolve(__dirname, "./../../../src");
 logger.info("src", __workdir);
 
 export default [
+    //TODO: 页面渲染流程图组件未适配成功
     mermaidPlugin({
         name: "图表参数配置",
     }),
