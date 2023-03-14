@@ -2,12 +2,16 @@ import { getDirname, path, logger } from "@vuepress/utils";
 import { searchPlugin } from "@vuepress/plugin-search";
 import { containerPlugin } from "@vuepress/plugin-container";
 import { registerComponentsPlugin } from "@vuepress/plugin-register-components";
+import { mermaidPlugin } from "./markdown-it-mermaid";
 
 const __dirname = getDirname(import.meta.url);
 const __workdir = path.resolve(__dirname, "./../../../src");
 logger.info("src", __workdir);
 
 export default [
+    mermaidPlugin({
+        name: "图表参数配置",
+    }),
     // 使用本地简易搜索
     searchPlugin({
         locales: {

@@ -3,12 +3,13 @@ import navbar from "../config/navbar";
 
 module.exports = {
     logo: 'assets/images/logo.svg',
-    repo: 'captives/captives.github.io',
+    repo: 'captives/vuepress-website',
     repoLabel: "Captives",
     docsDir: "docx",
     // 启用页面滚动
     smoothScroll: true,
     backToHome: "返回Captives",
+    editLinkPattern: ':repo/edit/develop/:path',
     locales: {
         '/': {
             // navbar: true,

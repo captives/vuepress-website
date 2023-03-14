@@ -33,8 +33,8 @@
 }
 
 .tip-block {
-    color: $tip-block-color;
-    background-color: $tip-block-bg-color;
+    color: var(--tip-block-color);
+    background-color: var(--tip-block-bg-color);
     margin: 1rem 0;
     border-bottom-right-radius: 2px;
     border-top-right-radius: 2px;
@@ -45,7 +45,7 @@
     &.success,
     &.warning,
     &.danger {
-        border-color: $tip-block-border-color;
+        border-color: var(--tip-block-border-color);
         padding: .1rem 1.5rem;
         border-left-width: .35rem;
         border-left-style: solid;
@@ -73,10 +73,10 @@
     }
 
     &.tip {
-        border-color: $tip-block-border-info-color;
+        border-color: var(--tip-block-border-info-color);
 
         code {
-            color: $tip-block-border-info-color;
+            color: var(--tip-block-border-info-color);
         }
 
         &::before {
@@ -85,10 +85,10 @@
     }
 
     &.success {
-        border-color: $tip-block-border-success-color;
+        border-color: var(--tip-block-border-success-color);
 
         code {
-            color: $tip-block-border-success-color;
+            color: var(--tip-block-border-success-color);
         }
 
         &::before {
@@ -97,10 +97,10 @@
     }
 
     &.warning {
-        border-color: $tip-block-border-warning-color;
+        border-color: var(--tip-block-border-warning-color);
 
         code {
-            color: $tip-block-border-warning-color;
+            color: var(--tip-block-border-warning-color);
         }
 
         &::before {
@@ -109,10 +109,10 @@
     }
 
     &.danger {
-        border-color: $tip-block-border-error-color;
+        border-color: var(--tip-block-border-error-color);
 
         code {
-            color: $tip-block-border-error-color;
+            color: var(--tip-block-border-error-color);
         }
 
         &::before {
@@ -142,6 +142,29 @@
     }
 }
 
+.code-group{
+    &__nav{
+        &-tab{
+            padding: 5px 10px;
+        }
+    }
+
+    &__li:first-child  button{
+        padding-left: 0;
+    }
+
+    &-item{
+        .el-divider__text{
+            color:var(--code-text-color);
+            background-color: var(--code-bg-color);
+        }
+
+        .sample{
+            padding: 20px;
+            background-color: var(--code-bg-color);
+        }
+    }
+}
 
 /* 修改滚动条样式-滚动条整体部分 */
 

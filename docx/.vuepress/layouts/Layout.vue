@@ -1,32 +1,30 @@
 <!-- See继承： https://v2.vuepress.vuejs.org/zh/reference/default-theme/extending.html; -->
-<template><!-- <Banner> 压屏通知 </Banner> -->
+<template>
+    <!-- <Banner> 压屏通知 </Banner> -->
     <ParentLayout>
         <template #page-top>
-            <div class="cover"
-                 v-if="cover"
-                 :style="{
-                     height: '320px',
-                     background: `url(${$withBase(cover)}) no-repeat 0/cover`,
-                 }">
+            <div class="cover" v-if="cover" :style="{
+                height: '320px',
+                background: `url(${$withBase(cover)}) no-repeat 0/cover`,
+            }">
                 <span class="cover-body">
                     <b class="title">{{ $page.title }}</b>
-                    <small v-if="$page.frontmatter.description"
-                           class="desc"> {{ $page.frontmatter.description }} </small>
+                    <small v-if="$page.frontmatter.description" class="desc"> {{ $page.frontmatter.description }} </small>
                 </span>
             </div>
         </template>
-        <!-- <template #page-bottom>
+    <!-- <template #page-bottom>
                 <div class="footer">定义：This is page-bottom footer</div>
             </template>
             <template #page-content-bottom>
                 <div class="footer">定义：This is page-content-bottom footer</div>
-            </template> -->
+                </template> -->
     </ParentLayout>
 </template>
 
 <script setup>
-import { computed, toRefs, onMounted } from 'vue';
-import { usePageData, useSiteData, usePageFrontmatter, usePageHead, usePageHeadTitle, usePageLang, useRouteLocale, useSiteLocaleData } from '@vuepress/client';
+import {computed, toRefs, onMounted} from 'vue';
+import {usePageData, useSiteData, usePageFrontmatter, usePageHead, usePageHeadTitle, usePageLang, useRouteLocale, useSiteLocaleData} from '@vuepress/client';
 import ParentLayout from '@vuepress/theme-default/layouts/Layout.vue';
 // import Banner from './../components/Banner.vue';
 
@@ -50,7 +48,7 @@ onMounted(() => {
     console.log('6.pageLang', pageLang.value);
     console.log('7.routeLocale', routeLocale.value);
     console.log('8.siteLocaleData', siteLocaleData.value);
-})
+});
 </script>
 <style lang="scss" scoped>
 .cover {

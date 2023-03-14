@@ -1,18 +1,18 @@
 <template>
-    <URLInput :list="$videoList"
-              v-model="url"></URLInput>
+    <URLInput v-model="url" :list="$videoList"></URLInput>
+    <VideoPlayer :src="$oss(url)" class="mt-20" autoplay @canplay="videoCanplayHandler"></VideoPlayer>
 
-    <VideoPlayer :src="$oss(url)"
-                 class="mt-20"
-                 autoplay
-                 @canplay="videoCanplayHandler"></VideoPlayer>
+    <el-row :gutter="50">
+        <el-col class="center" :xs="24" :sm="24" :md="12">
+            <el-divider content-position="left">Video Stream</el-divider>
+            <StreamPlayer :stream="videoStream" class="mt-20" :autoplay="true"></StreamPlayer>
+        </el-col>
 
-    <StreamPlayer :stream="videoStream"
-                  class="mt-20"
-                  :autoplay="true"></StreamPlayer>
-
-    <StreamTracks :value="videoStream"
-                  class="mt-20"></StreamTracks>
+        <el-col class="center" :xs="24" :sm="24" :md="12">
+            <el-divider content-position="left">Track</el-divider>
+            <StreamTracks :value="videoStream" class="mt-20"></StreamTracks>
+        </el-col>
+    </el-row>
 
     <MediaError :error="error"></MediaError>
 </template>
