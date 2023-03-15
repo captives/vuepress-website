@@ -1,30 +1,19 @@
 <template>
-  <el-input v-model="text"
-            placeholder="请输入内容"
-            clearable
-            v-bind="$attrs">
+  <el-input v-model="text" placeholder="请输入内容" clearable v-bind="$attrs">
     <template #prepend>
-      <el-select v-if="list.length"
-                 v-model="selectValue"
-                 placeholder="请选择"
-                 @change="changeHandler">
-        <el-option v-for="item in list"
-                   :key="item.value"
-                   :label="item.label"
-                   :value="item.value"></el-option>
+      <el-select v-if="list.length" v-model="selectValue" placeholder="请选择" @change="changeHandler">
+        <el-option v-for="item in list" :key="item.value" :label="item.label" :value="item.value"></el-option>
       </el-select>
       <span v-else>URL：</span>
     </template>
     <template #append>
-      <el-button type="success"
-                 :icon="Position"
-                 @click="requestURL">
+      <el-button type="success" :icon="Position" @click="requestURL">
       </el-button>
     </template>
   </el-input>
 </template>
 <script lang="ts" setup>
-import { toRefs, ref, onMounted } from 'vue';
+import { toRefs, ref } from 'vue';
 import { ElMessage } from 'element-plus'
 import { Position } from '@element-plus/icons-vue';
 
@@ -34,19 +23,20 @@ const emit = defineEmits<{
 }>();
 
 const props = withDefaults(defineProps<{
-  modelValue?: string,
+  modelValue?: string | null,
   list: Array<any>,
 }>(), {
-  modelValue: "",
+  modelValue: null,
   list: () => []
 });
 const { modelValue, list } = toRefs(props);
-const text = ref(modelValue.value);
+const text = ref('');
 const selectValue = ref();
 
-const changeHandler = (event) => {
+const changeHandler = (event: Event) => {
   text.value = selectValue.value;
 }
+
 const requestURL = () => {
   if (text.value) {
     emit("update:modelValue", text.value);
@@ -56,13 +46,11 @@ const requestURL = () => {
   }
 }
 
-onMounted(() => {
-  if (list.value.length) {
-    text.value = list.value[0].value;
-    selectValue.value = text.value;
-    emit("update:modelValue", text.value);
-  }
-});
+if (list.value.length) {
+  text.value = modelValue.value || list.value[0].value;
+  selectValue.value = text.value;
+  emit("update:modelValue", text.value);
+}
 </script>
 
 <style lang="scss" scoped>

@@ -8,7 +8,7 @@ import { ComponentCustomProperties } from 'vue'
 declare module 'vue' {
   interface ComponentCustomProperties {
     $videoList: Array<{ label: string, value: string }>;
-    $oss: (value: string) => string
+    $oss: (value?: string | null) => string
   }
 }
 

@@ -28,7 +28,9 @@ const audioElement = ref<HTMLAudioElement>();
 const videoElement = ref<HTMLVideoElement>();
 const canplayHandler = (event: Event) => {
     console.log('video player', (audioElement.value || videoElement.value)?.currentTime);
-    emit('canplay', event, audioElement.value || videoElement.value);
+    if((audioElement.value || videoElement.value)?.currentTime === 0){
+        emit('canplay', event, audioElement.value || videoElement.value);
+    }
 }
 </script>
 

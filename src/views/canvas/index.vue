@@ -14,5 +14,25 @@ const list = [{
     name: "视频绘图",
     icon: "el-icon-s-flag",
     component: defineAsyncComponent(() => import("./DrawVideo.vue")),
+}, {
+    path: "video-split",
+    name: "克隆视频画面",
+    icon: "el-icon-printer",
+    component: defineAsyncComponent(() => import("./DrawVideoSplitScreen.vue")),
+}, {
+    path: "video-splicing",
+    name: "视频画面拼接",
+    icon: "el-icon-printer",
+    component: defineAsyncComponent(() => import("./DrawVideoSplicing.vue")),
+}, {
+    path: "video-split-copy",
+    name: "视频画面分割拷贝",
+    icon: "el-icon-printer",
+    component: defineAsyncComponent(() => import("./DrawVideoSplitCopy.vue")),
+}, {
+    path: "video-split-copy",
+    name: "视频画面分割拷贝",
+    icon: "el-icon-printer",
+    component: defineAsyncComponent(() => import("./DrawVideoGreenScreen.vue")),
 }];
 </script>
