@@ -8,11 +8,15 @@ const __dirname = getDirname(import.meta.url);
 const __workdir = path.resolve(__dirname, "./../../../src");
 logger.info("src", __workdir);
 
+/**
+ * Vuepress插件增强可以查看,补充官方缺失的大部分有用功能
+ * https://vuepress-theme-hope.gitee.io/v2/zh/
+ */
 export default [
     //TODO: 页面渲染流程图组件未适配成功
-    mermaidPlugin({
-        name: "图表参数配置",
-    }),
+    // mermaidPlugin({
+    //     name: "图表参数配置",
+    // }),
     // 使用本地简易搜索
     searchPlugin({
         locales: {
@@ -31,15 +35,21 @@ export default [
         getExtraFields: (page) => page.frontmatter.tags ?? [],
     }),
     registerComponentsPlugin({
-        // 把这个目录/子目录下的所有组件注册成全局组件
-        componentsDir: path.resolve(__workdir, "./components"),
-        componentsPatterns: ["**/*.vue"],
-        getComponentName: (fileName) => {
-            // const name = path.trimExt(fileName.replace(/\/|\\/g, "-"));
-            const list = fileName.split("/");
-            return path.trimExt(list[list.length - 1]);
-        },
+        componentsDir:path.resolve(__dirname, "./../components"),
     }),
+    
+    //此功能弃用，@/plugins/client.ts
+    // registerComponentsPlugin({
+    //     // 把这个目录/子目录下的所有组件注册成全局组件
+    //     componentsDir: path.resolve(__workdir, "./components"),
+    //     componentsPatterns: ["**/*.vue"],
+    //     getComponentName: (fileName) => {
+    //         // const name = path.trimExt(fileName.replace(/\/|\\/g, "-"));
+    //         const list = fileName.split("/");
+    //         // console.log('\n----', path.trimExt(list[list.length - 1]));
+    //         return path.trimExt(list[list.length - 1]);
+    //     },
+    // }),
     containerPlugin({
         type: "tip",
         locales: {

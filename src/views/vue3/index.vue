@@ -1,15 +1,10 @@
 <template>
     <el-row>
-        <el-col :span="24"
-                :md="10">
-            <el-form :model="form"
-                     label-width="90px">
+        <el-col :span="24" :md="10">
+            <el-form :model="form" label-width="90px">
                 <el-form-item label="组件">
-                    <el-radio-group v-model="selectTabIndex"
-                                    @update:modelValue="tabChangeHandler">
-                        <el-radio-button v-for="(item, index) in list"
-                                         :key="index"
-                                         :label="index">{{ item.label }}
+                    <el-radio-group v-model="selectTabIndex" @update:modelValue="tabChangeHandler">
+                        <el-radio-button v-for="(item, index) in list" :key="index" :label="index">{{ item.label }}
                         </el-radio-button>
                         <el-radio-button :label="-1">
                             {{ selectTabIndex == list.length - 1 ? '|<<' : '>>' }} </el-radio-button>
@@ -17,30 +12,20 @@
                 </el-form-item>
                 <!-- props 传输复杂对象 -->
                 <el-form-item label="日期">
-                    <el-date-picker v-model="form.date"
-                                    type="date"
-                                    placeholder="请选择">
+                    <el-date-picker v-model="form.date" type="date" placeholder="请选择">
                     </el-date-picker>
                 </el-form-item>
                 <!-- props传输数组 -->
                 <el-form-item label="喜欢的节气">
-                    <el-checkbox-group v-model="form.likes"
-                                       style="width:300px">
-                        <el-checkbox v-for="(item, index) in solarTerms"
-                                     :key="index"
-                                     :label="item"
-                                     name="type">
+                    <el-checkbox-group v-model="form.likes" style="width:300px">
+                        <el-checkbox v-for="(item, index) in solarTerms" :key="index" :label="item" name="type">
                         </el-checkbox>
                     </el-checkbox-group>
                 </el-form-item>
                 <!-- provide index/object 响应式数据 -->
                 <el-form-item label="季节">
-                    <el-radio-group v-model="selectSeasonValue"
-                                    placeholder="请选择"
-                                    @update:modelValue="seasonChangeHandler">
-                        <el-radio v-for="item in seasons"
-                                  :key="item.code"
-                                  v-bind="item">
+                    <el-radio-group v-model="selectSeasonValue" placeholder="请选择" @update:modelValue="seasonChangeHandler">
+                        <el-radio v-for="item in seasons" :key="item.code" v-bind="item">
                         </el-radio>
                     </el-radio-group>
                 </el-form-item>
@@ -48,12 +33,8 @@
                 <el-form-item label="选中的节气"> {{ selectValue }} </el-form-item>
             </el-form>
         </el-col>
-        <el-col :span="24"
-                :md="14">
-            <component :is="currentTabItem.item"
-                       v-bind="form"
-                       v-model="selectValue"
-                       :label="currentTabItem.label">
+        <el-col :span="24" :md="14">
+            <component :is="currentTabItem.item" v-bind="form" v-model="selectValue" :label="currentTabItem.label">
             </component>
         </el-col>
     </el-row>
@@ -63,11 +44,11 @@ import { ref, reactive, computed, provide, defineAsyncComponent } from 'vue';
 
 // 定义数组对象
 let list: Array<any> = [
-    { label: "组件A", item: defineAsyncComponent(() => import('./components/ItemA.vue')) },
-    { label: "组件B", item: defineAsyncComponent(() => import('./components/ItemB.vue')) },
-    { label: "组件C", item: defineAsyncComponent(() => import('./components/ItemC.vue')) },
-    { label: "组件D", item: defineAsyncComponent(() => import('./components/ItemD.vue')) },
-    { label: "组件E", item: defineAsyncComponent(() => import('./components/ItemE.vue')) }
+    { label: "组件A", item: defineAsyncComponent(() => import('./ItemA.vue')) },
+    { label: "组件B", item: defineAsyncComponent(() => import('./ItemB.vue')) },
+    { label: "组件C", item: defineAsyncComponent(() => import('./ItemC.vue')) },
+    { label: "组件D", item: defineAsyncComponent(() => import('./ItemD.vue')) },
+    { label: "组件E", item: defineAsyncComponent(() => import('./ItemE.vue')) }
 ];
 
 // 定义数据源对象

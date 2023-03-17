@@ -25,10 +25,10 @@ module.exports = {
             selectLanguageText: "学习指南",
             selectLanguageName: "学习指南"
         },
-        '/poetry/': {
-            navbar,
-            selectLanguageText: "中华古诗词",
-            selectLanguageName: "中华古诗词"
-        }
+        // '/poetry/': {
+        //     navbar,
+        //     selectLanguageText: "中华古诗词",
+        //     selectLanguageName: "中华古诗词"
+        // }
     }
 };

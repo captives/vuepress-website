@@ -10,37 +10,48 @@ footerHtml: true
 
 <h2>{{title}}</h2>
 
-<Component/>
+<Guide/>
 
 <script  setup>
 import {computed, defineAsyncComponent, onMounted} from 'vue';
+
 //使用全局常量
-const title = computed(()=> "API：" + VUE_APP_API);
+const title = computed(()=> "API：" + VITE_APP_GITHUB_API);
+
 // 异步组件
-const Component = defineAsyncComponent(() => import('@/views/Component.vue'));
+const Guide = defineAsyncComponent(() => import('@/views/vue3/index.vue'));
+
 console.log("created - 组合式API对应选项式API的created函数是setup ~");
 onMounted(()=>{
   console.log('mounted  - 虚拟DOM挂载完成 ~');
 })
 </script>
 
+
 ::::code-group
 :::code-group-item Page.vue
-@[code](@src/views/Component.vue)
+@[code](@src/views/vue3/index.vue)
 :::
 :::code-group-item ItemA.vue
-@[code](@src/views/components/ItemA.vue)
+@[code](@src/views/vue3/ItemA.vue)
 :::
 :::code-group-item ItemB.vue
-@[code](@src/views/components/ItemB.vue)
+@[code](@src/views/vue3/ItemB.vue)
 :::
 :::code-group-item ItemC.vue
-@[code](@src/views/components/ItemC.vue)
+@[code](@src/views/vue3/ItemC.vue)
 :::
 :::code-group-item ItemD.vue
-@[code](@src/views/components/ItemD.vue)
+@[code](@src/views/vue3/ItemD.vue)
 :::
 :::code-group-item ItemE.vue
-@[code](@src/views/components/ItemE.vue)
+@[code](@src/views/vue3/ItemE.vue)
 :::
 ::::
+
+
+<style lang="scss">
+    header.hero{
+        min-height: 100vh;
+    }
+</style>

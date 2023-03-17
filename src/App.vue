@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { ref } from 'vue';
 import WebRTCSample from '@/views/canvas/index.vue';
-// import CanvasSample from '@/views/web/CanvasSample3DForest.vue';
 </script>
 
 <template>
@@ -13,8 +13,8 @@ import WebRTCSample from '@/views/canvas/index.vue';
     </a>
   </div>
   <hr>
-  <!-- <CanvasSample></CanvasSample> -->
   <WebRTCSample></WebRTCSample>
+  <LottieWeb :value="$oss('assets/lottie/lf20_ae4gsm8c.json')"></LottieWeb>
 </template>
 
 <style scoped>

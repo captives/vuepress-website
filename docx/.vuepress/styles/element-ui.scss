@@ -1,6 +1,23 @@
-table{
+table {
+
     &.el-table__body,
-    &.el-table__header{
-        margin: 0 ;
+    &.el-table__header {
+        margin: 0;
+    }
+}
+
+.el {
+
+    &-icon {
+        &.button {
+            padding: 2px 5px;
+            cursor: pointer;
+            vertical-align: middle;
+
+            &:hover {
+                background-color: rgba(0, 122, 155, .25);
+                border-radius: 2px;
+            }
+        }
     }
 }

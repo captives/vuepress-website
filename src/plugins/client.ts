@@ -1,4 +1,5 @@
 import { App, AppConfig, defineAsyncComponent } from 'vue';
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
 import helper from "../utils/helper";
@@ -6,7 +7,14 @@ import helper from "../utils/helper";
 export default {
     install(app: App<AppConfig>, options?: any) {
         app.use(ElementPlus, { zIndex: 3000 });
+        //注册所有ele 图标
+        for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+            app.component('Icon'+key, component);
+        }
+
         Object.assign(app.config.globalProperties, helper);
+
+        console.log('env', import.meta.env);
 
         app.config.globalProperties.$videoList = [
             { label: "樱花小镇 1080P MP4", value: "/assets/medias/cherry_town.mp4" },
@@ -33,7 +41,7 @@ export default {
         app.provide('videoList', app.config.globalProperties.$videoList);
         app.provide('oss', app.config.globalProperties.$oss);
 
-        if (!!options?.isVue) {
+        // if (!!options?.isVue) {
             /**
              * 注册目录内的所有组件为全局组件
              * https://cn.vitejs.dev/guide/features.html#glob-import
@@ -44,7 +52,7 @@ export default {
                 // @ts-ignore;
                 app.component(name, defineAsyncComponent(value));
             }
-        }
+        // }
 
         /**
          * 追踪运行时错误

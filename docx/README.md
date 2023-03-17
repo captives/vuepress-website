@@ -18,8 +18,11 @@ features:
   details: 教程系列
 footer: MIT Licensed | Copyright © 2018-present Evan You
 ---
+<!-- 仅文档专用全局组件 -->
+<NpmBadge package="vue"></NpmBadge>
+<!-- 公共全局组件 -->
+<VueSite></VueSite>
 
-<!-- <h2>{{title}}</h2> -->
-<!-- <NpmBadge></NpmBadge> -->
-注释： 全局组件
-<!-- <VueSite>{{title}}</VueSite> -->
+<script>
+  console.log('doc env', VITE_APP_GITHUB_API);
+</script>

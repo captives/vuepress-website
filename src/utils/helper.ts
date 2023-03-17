@@ -33,6 +33,24 @@ export function loadScript(url: string) {
     });
 }
 
+
+export function loadScriptContent(url: string) {
+    console.log('insert url', url);
+    return new Promise((resolve) => {
+        var xhr = new XMLHttpRequest;
+        xhr.open('get', url, true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) {
+                    resolve(xhr.responseText);
+                }
+            }
+        };
+        xhr.send(null);
+    });
+}
+
+
 export function fetch(url: string) {
     let xhr: any = null;
     if ("ActiveXObject" in window) {
@@ -61,9 +79,48 @@ export function fetch(url: string) {
     });
 }
 
+
+export const fileToBlob = (file: File, callback: (data: string | Blob | ArrayBuffer | null) => void) => {
+    let blob: string | Blob | ArrayBuffer | null = null;
+    let reader = new FileReader();
+    reader.addEventListener('load', (e: ProgressEvent<FileReader>) => {
+        if (e.target?.result && typeof e.target?.result === 'object') {
+            blob = new Blob([e.target.result], { type: file.type });
+        } else {
+            blob = e.target?.result || null;
+        }
+        callback(blob);
+    });
+    reader.readAsArrayBuffer(file);
+}
+
+export const fileToBase64 = (file: File, callback: (data: string | ArrayBuffer | null) => void) => {
+    let reader = new FileReader();
+    reader.addEventListener('load', (e) => {
+        callback(reader.result);
+    })
+    reader.readAsDataURL(file);
+}
+
+export const downloadFile = (url: string, fileName: string, callback: () => void) => {
+    const a = document.createElement("a");
+    a.style.display = "none";
+    a.href = url + "?v" + Date.now();
+    a.download = fileName;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => {
+        document.body.removeChild(a);
+        callback && callback();
+    }, 100);
+}
+
 export default {
     formatBytes,
     loadScript,
     appendScript: loadScript,
     fetch,
+    fileToBlob,
+    fileToBase64,
+    downloadFile
 };

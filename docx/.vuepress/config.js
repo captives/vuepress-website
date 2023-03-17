@@ -11,7 +11,7 @@ export default defineUserConfig({
     lang: "/",
     title: "你好， VuePress ！",
     description: "这是我的第一个 VuePress 站点",
-    base:"/vuepress-website/",
+    base: "/vuepress-website/",
     dest: path.resolve(__dirname, "./../../docs"),
     port: 2023,
     alias: {
@@ -21,7 +21,8 @@ export default defineUserConfig({
         "@/pages": path.resolve(__dirname, "./../../src/pages"),
     },
     define: {
-        VUE_APP_API: "https://captives.github.io/api",
+        VITE_APP_BASE_API: "http://localhost:2010",
+        VITE_APP_GITHUB_API: "https://captives.github.io/api",
     },
     debug: true,
     theme: defaultTheme(theme),

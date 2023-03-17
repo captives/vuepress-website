@@ -7,9 +7,9 @@ export default {
         title: '学习指南',
         description: 'captives.github.io',
     },
-    '/poetry/': {
-        lang: 'poetry',
-        title: '古诗词',
-        description: 'captives.github.io',
-    }
+    // '/poetry/': {
+    //     lang: 'poetry',
+    //     title: '古诗词',
+    //     description: 'captives.github.io',
+    // }
 }

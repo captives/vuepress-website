@@ -309,12 +309,12 @@ markdown: {
 | 表格标题1 | 表格标题2 | 表格标题3 |
 | :-------- | :-------: | --------: |
 | 左对齐    |   居中    |    右对齐 |
-| --\|--       |    --\|--    |      --\|-- |
+| --\|--    |  --\|--   |    --\|-- |
 ```
 | 表格标题1 | 表格标题2 | 表格标题3 |
 | :-------- | :-------: | --------: |
 | 左对齐    |   居中    |    右对齐 |
-| --\|--       |    --\|--    |      --\|-- |
+| --\|--    |  --\|--   |    --\|-- |
 
 
 # Vue 语法
@@ -330,7 +330,7 @@ Vuepress可以直接使用Vue语法
 
 ## Vue模块
 
-参考 [高级配置 > Vue环境变量](#vue环境变量)
+参考 [进阶配置 > Vue环境变量](#vue环境变量)
 
 ## Vue 模块内Sass语法
 Vuepress默认使用sass，可以在文档内通过`<style></style>`标签对直接书写sass语法，不支持 `scoped`
@@ -424,17 +424,17 @@ const bar:string = 'bar'
 ### cover-fit/coverFit
 页面头图填充模式，参考css样式`background-size`属性
 
-## 高级配置
+## 进阶配置
 
 ### Vue环境变量
 
 <b>{{ title }}</b>
 
 <script  setup>
-    import { computed, defineAsyncComponent } from 'vue';
-    const DateString = defineAsyncComponent(() => import('@/views/components/DateString.vue'));
-    //使用全局常量
-    const title = computed(()=> "API：" + VUE_APP_API);
+import { computed, defineAsyncComponent } from 'vue';
+const DateString = defineAsyncComponent(() => import('@/views/vue3/DateString.vue'));
+//使用全局常量
+const title = computed(()=> "API：" + VITE_APP_GITHUB_API);
 </script>
 
 脚本源码：
@@ -479,7 +479,7 @@ alias: {
 
 <script  setup>
     import { defineAsyncComponent } from 'vue';
-    const DateString = defineAsyncComponent(() => import('@/views/components/DateString.vue'));
+    const DateString = defineAsyncComponent(() => import('@/views/vue3/DateString.vue'));
 </script>
 ```
 
