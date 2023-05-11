@@ -4,7 +4,6 @@ import store, { useUserStore } from '@/store';
 import client from './plugins/client';
 import lazy from '@/directives/lazy';
 import App from '@/layout/Main.vue';
-import '@/theme/index.scss';
 
 const app = createApp(App)
     .use(router)

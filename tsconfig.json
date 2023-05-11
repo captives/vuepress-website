@@ -16,6 +16,7 @@
     "composite": true,
     "target": "ESNext",
     "useDefineForClassFields": true,
+    "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
     "moduleResolution": "Node",
     "strict": true,
