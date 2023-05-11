@@ -2,6 +2,7 @@ import { createApp } from 'vue';
 import router from '@/router';
 import store, { useUserStore } from '@/store';
 import client from './plugins/client';
+import lazy from '@/directives/lazy';
 import App from '@/layout/Main.vue';
 import '@/theme/index.scss';
 
@@ -9,6 +10,7 @@ const app = createApp(App)
     .use(router)
     .use(store)
     .use(client, { isVue: true })
+    .use(lazy)
 
 
 console.log('请求远程数据');

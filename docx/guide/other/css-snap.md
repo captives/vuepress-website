@@ -8,10 +8,13 @@ sidebar: false
 - `scroll-snap-type` 捕捉视口
 - `scroll-snap-align` 视口对齐方向
 
+
+[图片延迟动态加载!](https://addyosmani.com/blog/lazy-loading/)
+
 <ul class="list">
     <li v-for="i in 24" class="list-item" :key="i">
-        <img v-if="i < 10" :src="$oss(`assets/solar-term/0${i}.webp`)">
-        <img v-else :src="$oss(`assets/solar-term/${i}.webp`)">
+        <img v-if="i < 10" :src="$oss(`assets/solar-term/0${i}.webp`)" loading="lazy">
+        <img v-else :src="$oss(`assets/solar-term/${i}.webp`)" loading="lazy">
     </li>
 </ul>
 

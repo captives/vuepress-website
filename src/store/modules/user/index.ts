@@ -1,25 +1,18 @@
 import { defineStore } from 'pinia';
-import type { UserState } from './types';
+import type { UserState, SexType } from './types';
 
 const useUserStore = defineStore('user', {
   state: (): UserState => ({
     id: "",
-    isTeamOwner: 0,
-    nickName: "默认姓名",
-    remark: undefined,
+    code: "",
     avatar: undefined,
     email: undefined,
-    contactNumber: undefined,
-    certificateNumber: undefined,
-    certificateType: undefined,
-    contactAddress: undefined,
+    localName: undefined,
+    nickName: "",
+    profile: undefined,
     sex: 0,
-    platform: "",
     token: "",
-    code: "",
-    teamCode: null,
-    teamName: null,
-    teams: [] //当前团队内的所有成员
+    platform: ""
   }),
 
   getters: {
@@ -34,9 +27,6 @@ const useUserStore = defineStore('user', {
     // Set user's information
     setInfo(partial: Partial<UserState>) {
       this.$patch(partial);
-    },
-    setTeams(list: Array<UserState>) {
-      this.teams.splice(0, this.teams.length, ...list);
     }
   }
 });

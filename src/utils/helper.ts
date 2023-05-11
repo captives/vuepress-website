@@ -115,6 +115,33 @@ export const downloadFile = (url: string, fileName: string, callback: () => void
     }, 100);
 }
 
+/**
+ * base 64位图转blob
+ * @param base64 
+ * @returns 
+ */
+export const base64ToBlob = (base64: string) => {
+    var byteCharacters = window.atob(base64.replace(/^data:image\/(png|jpeg|jpg);base64,/, ""));
+    var byteNumbers = new Array(byteCharacters.length);
+    for (var i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+
+    var byteArray = new Uint8Array(byteNumbers);
+    return new Blob([byteArray], { type: undefined });
+}
+
+/**
+ * 下载base64位图
+ * @param base64 
+ * @param name 文件名
+ * @param callback 下载后回调
+ */
+export const downloadbase64Image = (base64: string, name: string = 'image.jpg', callback: () => void) => {
+    const blob = base64ToBlob(base64);
+    downloadFile(URL.createObjectURL(blob), name, callback);
+};
+
 export default {
     formatBytes,
     loadScript,
@@ -122,5 +149,18 @@ export default {
     fetch,
     fileToBlob,
     fileToBase64,
-    downloadFile
+    base64ToBlob,
+    downloadFile,
+    downloadbase64Image
 };
+
+// P1: 获取页面的存储数据
+// data = JSON.stringify({localStorage, sessionStorage});
+
+// P2: 恢复页面的存储数据
+// login = JSON.parse(data);
+// for(store in login){
+//     for(key in login[store]){
+//         window[store].setItem(key, login[store][key]);
+//     }
+// }

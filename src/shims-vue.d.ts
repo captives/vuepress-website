@@ -32,3 +32,4 @@ declare interface SoundMeter {
 }
 
 declare module 'xgplayer-hls';
+// declare module 'cypress';

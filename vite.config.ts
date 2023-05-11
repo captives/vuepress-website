@@ -53,6 +53,13 @@ export default defineConfig({
     //   replacement: 'vue-i18n/dist/vue-i18n.cjs.js'
     // }]
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@/assets/styles/index.scss";`
+      },
+    },
+  },
   define: {
     "process.env": {}
   },

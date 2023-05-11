@@ -14,12 +14,13 @@ footerHtml: true
 
 <script  setup>
 import {computed, defineAsyncComponent, onMounted} from 'vue';
+import Guide from '@/views/vue3/index.vue';
 
 //使用全局常量
 const title = computed(()=> "API：" + VITE_APP_GITHUB_API);
 
 // 异步组件
-const Guide = defineAsyncComponent(() => import('@/views/vue3/index.vue'));
+// const Guide = defineAsyncComponent(() => import('@/views/vue3/index.vue'));
 
 console.log("created - 组合式API对应选项式API的created函数是setup ~");
 onMounted(()=>{

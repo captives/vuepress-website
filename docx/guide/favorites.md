@@ -31,3 +31,15 @@ Vite 有多快？在 Repl.it 上从零启动一个基于 Vite 的 React 应用�
 ## PPT模板下载站点
 [www.1ppt.com](http://www.1ppt.com/)
 [www.51pptmoban.com](http://www.51pptmoban.com/)
+
+
+## API
+
+### 小鸟壁纸
+
+获取分类
+> http://wp.birdpaper.com.cn/intf/getCategory
+
+根据id获取壁纸 **content=keyword，pageno：页数，count：单页壁纸数量**
+> http://wp.birdpaper.com.cn/intf/GetListByCategory?cids=id&pageno=1&count=500
+

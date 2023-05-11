@@ -6,15 +6,6 @@ const useAppStore = defineStore('app', {
     "theme": "light",
     "themeColor": "#165DFF",
     "language": "en-US",
-    "singleIndex": 0,
-    "siteIndex": 0,
-    "colorWeek": false,
-    "navbar": true,
-    "tabBar": false,
-    "menuCollapse": false,
-    "footer": true,
-    "menuWidth": 220,
-    "globalSettings": false,
     "device": "desktop",
   }),
 
@@ -34,10 +25,10 @@ const useAppStore = defineStore('app', {
     toggleTheme(dark: boolean) {
       if (dark) {
         this.theme = 'dark';
-        document.body.setAttribute('arco-theme', 'dark');
+        document.documentElement.classList.add('dark');
       } else {
         this.theme = 'light';
-        document.body.removeAttribute('arco-theme');
+        document.documentElement.classList.remove('dark');
       }
     },
     toggleDevice(device: string) {
@@ -50,7 +41,7 @@ const useAppStore = defineStore('app', {
   persist: {
     enabled: true,
     strategies: [
-      { storage: sessionStorage, paths: ['theme', 'singleIndex', 'siteIndex'] },
+      { storage: sessionStorage, paths: ['theme'] },
       { storage: localStorage, paths: ['*'] },
     ],
   }

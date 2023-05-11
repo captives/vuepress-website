@@ -13,6 +13,12 @@ heroImage: /assets/images/browser_960_720.png
 2. [Fetch API](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API)
 提供了一个获取资源的接口（包括跨域请求）。任何使用过 XMLHttpRequest 的人都能轻松上手，而且新的 API 提供了更强大和灵活的功能集。
 
+
+## 扩展阅读
+
+1. [Mobile Web Video Playback](https://web.dev/media-mobile-web-video-playback/)
+封装一个移动端视频播放器
+
 > 获取随机颜色
 ```js
  "#" + Math.floor(0xFFFFFF * Math.random()).toString(16)
