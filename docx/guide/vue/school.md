@@ -1,6 +1,10 @@
 
 # 课程列表
 
+## Vue 3 Composition API - Vue Mastery
+
+<video-list class="mt-20 mb-20" :list="list3" @change="changeHandler"></video-list>
+
 ## Vue 3 Reactivity(响应式原理) - Vue Mastery
 
 <video-list class="mt-20 mb-20" :list="list" @change="changeHandler"></video-list>
@@ -8,6 +12,7 @@
 ## Vue 3 + Typescript - Vue Mastery
 
 <video-list class="mt-20 mb-20" :list="list2" @change="changeHandler"></video-list>
+
 
 
 <script lang="ts" setup>
@@ -32,6 +37,20 @@ const list2:Array<ListItemRecord> = [
     {"title":"Typescript- 8 - Computed & Methods with Custom Types","href":"https://www.bilibili.com/video/BV1Cy4y1J7Ww?p=8","durction":"03:46"},
     {"title":"Typescript- 9 - Next Steps","href":"https://www.bilibili.com/video/BV1Cy4y1J7Ww?p=9","durction":"01:44"},
     {"title":"Typescript- 10 - Bonus- Composition API","href":"https://www.bilibili.com/video/BV1Cy4y1J7Ww?p=10","durction":"06:23"}
+];
+
+const list3: Array<ListItemRecord> = [
+    { "title": "Composition API", "href": "https://www.bilibili.com/video/BV12k4y1y75T?p=1", "durction": "07:42" },
+    { "title": "setup & ref", "href": "https://www.bilibili.com/video/BV12k4y1y75T?p=2", "durction": "04:08" },
+    { "title": "Methods", "href": "https://www.bilibili.com/video/BV12k4y1y75T?p=3", "durction": "01:51" }, 
+    { "title": "Computed Properties", "href": "https://www.bilibili.com/video/BV12k4y1y75T?p=4", "durction": "01:32" },
+    { "title": "Reactive Syntax", "href": "https://www.bilibili.com/video/BV12k4y1y75T?p=5", "durction": "03:04" },
+    { "title": "Modularizing", "href": "https://www.bilibili.com/video/BV12k4y1y75T?p=6", "durction": "02:15" },
+    { "title": "Lifecycle Hooks", "href": "https://www.bilibili.com/video/BV12k4y1y75T?p=7", "durction": "03:12" },
+    { "title": "Watch", "href": "https://www.bilibili.com/video/BV12k4y1y75T?p=8", "durction": "03:41" },
+    { "title": "Sharing State", "href": "https://www.bilibili.com/video/BV12k4y1y75T?p=9", "durction": "06:27" },
+    { "title": "Suspense", "href": "https://www.bilibili.com/video/BV12k4y1y75T?p=10", "durction": "04:28" },
+    { "title": "Teleport", "href": "https://www.bilibili.com/video/BV12k4y1y75T?p=11", "durction": "05:18" }
 ];
 
 const changeHandler = (item: ListItemRecord) => {

@@ -28,6 +28,14 @@ Vite 有多快？在 Repl.it 上从零启动一个基于 Vite 的 React 应用�
 :::
 
 
+## web and Office
+ - HTML5 生成 PPT [PptxGenJS](https://gitbrent.github.io/PptxGenJS/);
+ - HTML5 生成 Excel [exceljs](https://github.com/exceljs/exceljs);
+ - HTML5 预览 World [docxjs](https://volodymyrbaydalka.github.io/docxjs/);
+ - HTML5 预览 world [@vue-office/docx](github.com/501351981/vue-office);
+ - HTML5 加载 Excel [@vue-office/excel](github.com/501351981/vue-office);
+ - HTML5 加载 PDF [@vue-office/pdf](github.com/501351981/vue-office);
+
 ## PPT模板下载站点
 [www.1ppt.com](http://www.1ppt.com/)
 [www.51pptmoban.com](http://www.51pptmoban.com/)
