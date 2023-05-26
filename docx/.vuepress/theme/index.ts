@@ -1,7 +1,7 @@
 
 import navbar from "../config/navbar";
 
-module.exports = {
+export default {
     logo: 'assets/images/logo.svg',
     repo: 'captives/vuepress-website',
     repoLabel: "Captives",
