@@ -1,7 +1,4 @@
 import Locale from './index';
-
-console.log('英文', Locale.loading, Locale);
-
 export default {
     [Locale.loading]:"loading",
     [Locale.language]: "English",

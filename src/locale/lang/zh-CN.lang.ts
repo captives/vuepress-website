@@ -1,5 +1,4 @@
 import Locale from './index';
-
 export default {
     [Locale.loading]:"加载中",
     [Locale.language]: "中文",

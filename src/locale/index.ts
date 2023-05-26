@@ -57,7 +57,7 @@ function noCase(input: string, options: any = {}) {
 export function defineLocale(name: string | null, locale: { [key: string]: string }): { [key: string]: string } {
     Object.keys(locale).forEach((key) => {
         if (Reflect.has(locale, key)) {
-            locale[key] = noCase((!!name ? name + "." : '') + locale[key], { delimiter: "." });
+            locale[key as keyof typeof locale] = noCase((!!name ? name + "." : '') + locale[key as keyof typeof locale], { delimiter: "." });
         }
     });
     return locale;
@@ -75,7 +75,6 @@ export function setLocale(language: string, locale: { [key: string]: string }) {
         i18Config.messages[language] = locale;
     }
 }
-
 
 /***
  * BEGIN: 把子模块语言包加载进来
