@@ -1,7 +1,8 @@
 {
-  "name": "vuepress-vite-app",
-  "version": "1.0.0",
+  "name": "vuepress-website",
+  "version": "1.2.0",
   "description": "",
+  "type": "module",
   "main": "src/main.ts",
   "types": "src/types/index.d.ts",
   "scripts": {
