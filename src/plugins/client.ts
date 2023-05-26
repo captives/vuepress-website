@@ -10,7 +10,7 @@ export default {
         app.use(ElementPlus, { zIndex: 3000 });
         //注册所有ele 图标
         for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
-            app.component('Icon'+key, component);
+            app.component('Icon' + key, component);
         }
 
         Object.assign(app.config.globalProperties, helper);
@@ -27,7 +27,7 @@ export default {
         ];
 
         // 静态存储
-        app.config.globalProperties.$oss = (filePath: string) => {
+        app.config.globalProperties.$oss = (filePath?: string | null) => {
             const url = new URL(window.location.href);
             const isSSL: boolean = window.location.protocol.indexOf('https') != -1;
             if (import.meta.env.DEV) {
@@ -43,16 +43,16 @@ export default {
         app.provide('oss', app.config.globalProperties.$oss);
 
         // if (!!options?.isVue) {
-            /**
-             * 注册目录内的所有组件为全局组件
-             * https://cn.vitejs.dev/guide/features.html#glob-import
-             */
-            const components = import.meta.glob('@/components/**/*.vue');
-            for (let [path, value] of Object.entries(components)) {
-                const name: string = path.slice(path.lastIndexOf('/') + 1, path.indexOf('.vue'));
-                // @ts-ignore;
-                app.component(name, defineAsyncComponent(value));
-            }
+        /**
+         * 注册目录内的所有组件为全局组件
+         * https://cn.vitejs.dev/guide/features.html#glob-import
+         */
+        const components = import.meta.glob('@/components/**/*.vue');
+        for (let [path, value] of Object.entries(components)) {
+            const name: string = path.slice(path.lastIndexOf('/') + 1, path.indexOf('.vue'));
+            // @ts-ignore;
+            app.component(name, defineAsyncComponent(value));
+        }
         // }
 
         /**

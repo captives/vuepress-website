@@ -1,13 +1,14 @@
 {
   "include": [
-    "src/**/*.d.ts",
     "src/**/*",
     "src/**/*.vue",
+    "src/**/*.d.ts",
     "tests/**/*.ts",
     "tests/**/*.tsx",
     "config-pwa.ts"
   ],
   "exclude": [
+    "src/utils/3d-forest.js",
     "src/**/__tests__/*"
   ],
   "compilerOptions": {
@@ -28,8 +29,8 @@
     "baseUrl": "./",
     "types": [
       "vite/client",
-      "pinia-plugin-persist",
-      "vite-plugin-pwa/client",
+      "pinia-plugin-persistedstate",
+      // "vite-plugin-pwa/client",
       "vite-plugin-svg-icons/client"
     ],
     "paths": {

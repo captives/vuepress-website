@@ -13,9 +13,9 @@
   </el-input>
 </template>
 <script lang="ts" setup>
-import { toRefs, ref } from 'vue';
-import { ElMessage } from 'element-plus'
-import { Position } from '@element-plus/icons-vue';
+import {toRefs, ref} from 'vue';
+import {ElMessage} from 'element-plus'
+import {Position} from '@element-plus/icons-vue';
 
 const emit = defineEmits<{
   (e: "update:modelValue", value: string): void,
@@ -29,7 +29,7 @@ const props = withDefaults(defineProps<{
   modelValue: null,
   list: () => []
 });
-const { modelValue, list } = toRefs(props);
+const {modelValue, list} = toRefs(props);
 const text = ref('');
 const selectValue = ref();
 
@@ -42,7 +42,7 @@ const requestURL = () => {
     emit("update:modelValue", text.value);
     emit("change", selectValue.value);
   } else {
-    ElMessage({ type: "warning", message: "请输入内容" });
+    ElMessage({type: "warning", message: "请输入内容"});
   }
 }
 

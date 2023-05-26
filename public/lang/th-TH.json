@@ -1,0 +1,21 @@
+{
+    "app.language": "tไทย",
+    "app.language.locale": "th-TH",
+    "app.currency": "฿",
+    "app.currency.type": "THB",
+    "app.time.zone": "+0700",
+    "app.time.format": "MM/DD/YYYY",
+    "app.time.format.xaxis": "MMM Do",
+    "app.time.format.tooltip": "MMM Do,YYYY",
+    "app.theme.light": "ความสว่างไสว",
+    "app.theme.dark": "ความมืด",
+    "site.date.today": "Ngayon",
+    "site.date.tow": "Bukas",
+    "site.date.mon": "Lunes",
+    "site.date.tue": "Martes",
+    "site.date.wed": "Miyerkules",
+    "site.date.thu": "Huebes",
+    "site.date.fri": "Biyernes",
+    "site.date.sat": "Sabado",
+    "site.date.sun": "Linggo"
+}

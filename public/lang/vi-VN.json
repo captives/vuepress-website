@@ -1,0 +1,20 @@
+{
+    "app.language": "Tiếng Việt",
+    "app.language.locale": "vi-VN",
+    "app.currency": "₫",
+    "app.currency.type": "VND",
+    "app.time.zone": "+0700",
+    "app.time.format": "MM/DD/YYYY",
+    "app.time.format.xaxis": "MMM Do",
+    "app.time.format.tooltip": "MMM Do,YYYY",
+    "app.theme.light": "màu sáng",
+    "app.theme.dark": "màu đen",
+    "site.date.tow": "Besok",
+    "site.date.mon": "Senin",
+    "site.date.tue": "Selasa",
+    "site.date.wed": "Rabu",
+    "site.date.thu": "Kamis",
+    "site.date.fri": "Jumat",
+    "site.date.sat": "Sabtu",
+    "site.date.sun": "Minggu"
+}

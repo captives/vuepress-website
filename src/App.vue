@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import {ref} from 'vue';
 import WebRTCSample from '@/views/canvas/index.vue';
+
 </script>
 
 <template>

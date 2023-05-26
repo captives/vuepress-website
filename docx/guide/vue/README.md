@@ -10,6 +10,8 @@ footerHtml: true
 # Vue 生态
 <video-list :list="list" @change="changeHandler"></video-list>
 
+# 工具集
+<video-list :list="tools" @change="changeHandler"></video-list>
 
 
 <h2>{{title}}</h2>
@@ -40,6 +42,11 @@ const list = [
     { title: "Nuxt", href: "https://nuxtjs.org/" },
     { title: "Nuxt Content", href: "https://content.nuxtjs.org/" },
 ];
+
+const tools = [
+    { title: "VueUse", href: "https://www.vueusejs.com/" },
+];
+
 const changeHandler = (item:any) => {
     window.open(item.href);
 }

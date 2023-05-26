@@ -17,6 +17,11 @@ export function formatBytes(size: number, fractionDigits = 2) {
     return (parseInt(value, 10) === Number(value) ? parseInt(value, 10) : value) + suffix;
 }
 
+/**
+ * 加载远程script脚本到本地文档中
+ * @param url 远程script脚本地址
+ * @returns 
+ */
 export function loadScript(url: string) {
     console.log("insert url", url);
     return new Promise((resolve, reject) => {
@@ -33,10 +38,14 @@ export function loadScript(url: string) {
     });
 }
 
-
-export function loadScriptContent(url: string) {
+/**
+ * 加载远程script脚本内容
+ * @param url 远程script脚本地址
+ * @returns 
+ */
+export function loadScriptContent(url: string): Promise<(resolve: Function, reject?: Function) => void> {
     console.log('insert url', url);
-    return new Promise((resolve) => {
+    return new Promise((resolve: (text: any) => void) => {
         var xhr = new XMLHttpRequest;
         xhr.open('get', url, true);
         xhr.onreadystatechange = function () {
@@ -50,17 +59,22 @@ export function loadScriptContent(url: string) {
     });
 }
 
-
-export function fetch(url: string) {
+/**
+ * 获取地址下的文件
+ * @param url 
+ * @returns 
+ */
+export function fetch(url: string): Promise<(resolve: (data?: any) => void, reject: (data?: any) => void) => void> {
     let xhr: any = null;
     if ("ActiveXObject" in window) {
         //@ts-ignore;
         xhr = new window.ActiveXObject("Microsoft.XMLHTTP");
     } else if ("XMLHttpRequest" in window) {
+        //@ts-ignore;
         xhr = new window.XMLHttpRequest();
     }
 
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve: (data?: any) => void, reject: (text?: ErrorEvent) => void) => {
         xhr.open("get", url, true);
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4) {
@@ -73,14 +87,18 @@ export function fetch(url: string) {
 
         xhr.onerror = (e: ErrorEvent) => {
             console.log("Fetch Error", url, e);
-            reject();
+            reject(e);
         };
         xhr.send();
     });
 }
 
-
-export const fileToBlob = (file: File, callback: (data: string | Blob | ArrayBuffer | null) => void) => {
+/**
+ * 文件转Blob
+ * @param file 文件对象
+ * @param callback 加载完后返回的blob地址
+ */
+export function fileToBlob(file: File, callback: (data: string | Blob | ArrayBuffer | null) => void) {
     let blob: string | Blob | ArrayBuffer | null = null;
     let reader = new FileReader();
     reader.addEventListener('load', (e: ProgressEvent<FileReader>) => {
@@ -94,7 +112,12 @@ export const fileToBlob = (file: File, callback: (data: string | Blob | ArrayBuf
     reader.readAsArrayBuffer(file);
 }
 
-export const fileToBase64 = (file: File, callback: (data: string | ArrayBuffer | null) => void) => {
+/**
+ * 文件流转Base64
+ * @param file 
+ * @param callback 
+ */
+export function fileToBase64(file: File, callback: (data: string | ArrayBuffer | null) => void) {
     let reader = new FileReader();
     reader.addEventListener('load', (e) => {
         callback(reader.result);
@@ -102,7 +125,13 @@ export const fileToBase64 = (file: File, callback: (data: string | ArrayBuffer |
     reader.readAsDataURL(file);
 }
 
-export const downloadFile = (url: string, fileName: string, callback: () => void) => {
+/**
+ * 下载文件
+ * @param url 文件地址
+ * @param fileName 文件名
+ * @param callback 完成后的回调
+ */
+export function downloadFile(url: string, fileName: string, callback: () => void) {
     const a = document.createElement("a");
     a.style.display = "none";
     a.href = url + "?v" + Date.now();
@@ -120,7 +149,7 @@ export const downloadFile = (url: string, fileName: string, callback: () => void
  * @param base64 
  * @returns 
  */
-export const base64ToBlob = (base64: string) => {
+export function base64ToBlob(base64: string) {
     var byteCharacters = window.atob(base64.replace(/^data:image\/(png|jpeg|jpg);base64,/, ""));
     var byteNumbers = new Array(byteCharacters.length);
     for (var i = 0; i < byteCharacters.length; i++) {
@@ -136,10 +165,21 @@ export const base64ToBlob = (base64: string) => {
  * @param base64 
  * @param name 文件名
  * @param callback 下载后回调
+ * @returns void
  */
-export const downloadbase64Image = (base64: string, name: string = 'image.jpg', callback: () => void) => {
+export function downloadbase64Image(base64: string, name: string = 'image.jpg', callback: () => void) {
     const blob = base64ToBlob(base64);
     downloadFile(URL.createObjectURL(blob), name, callback);
+};
+
+/**
+ * 高亮文本
+ * @param text 段落文本
+ * @param keyword 高亮关键字
+ * @returns 匹配高亮后的HTML格式文本
+ */
+export function highlightText(text: string, keyword?: string) {
+    return keyword ? text.replace(new RegExp(`(${keyword})`, 'ig'), "<span style='color:#F43874;'>$1</span>") : text;
 };
 
 export default {
@@ -151,11 +191,12 @@ export default {
     fileToBase64,
     base64ToBlob,
     downloadFile,
-    downloadbase64Image
+    downloadbase64Image,
+    highlightText
 };
 
 // P1: 获取页面的存储数据
-// data = JSON.stringify({localStorage, sessionStorage});
+// data = JSON.stringify({localStorage, sessionStorage , cookieStore});
 
 // P2: 恢复页面的存储数据
 // login = JSON.parse(data);
