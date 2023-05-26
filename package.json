@@ -17,7 +17,7 @@
   "license": "ISC",
   "devDependencies": {
     "@types/mermaid": "^9.2.0",
-    "element-plus": "^2.2.30",
+    "element-plus": "^2.3.5",
     "lottie-web": "^5.10.2",
     "vite-plugin-svg-icons": "^2.0.1",
     "vue-class-component": "^8.0.0-rc.1",
@@ -25,6 +25,7 @@
     "vue-property-decorator": "^10.0.0-rc.3"
   },
   "dependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
     "@vuepress/client": "2.0.0-beta.60",
     "@vuepress/plugin-container": "2.0.0-beta.60",
     "@vuepress/plugin-register-components": "2.0.0-beta.60",

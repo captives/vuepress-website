@@ -40,18 +40,11 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
       '@/assets': fileURLToPath(new URL('./src/assets', import.meta.url)),
+      '@/locale': fileURLToPath(new URL('./src/locale', import.meta.url)),
+      '@/store': fileURLToPath(new URL('./src/store', import.meta.url)),
+      '@/pages': fileURLToPath(new URL('./src/pages', import.meta.url)),
       // 'vue-i18n': "vue-i18n/dist/vue-i18n.cjs.js",
     }
-    // [{
-    //   find: '@',
-    //   replacement: fileURLToPath(new URL('./src', import.meta.url))
-    // }, {
-    //   find: '@/assets',
-    //   replacement: fileURLToPath(new URL('./src/assets', import.meta.url))
-    // }, {
-    //   find: 'vue-i18n',
-    //   replacement: 'vue-i18n/dist/vue-i18n.cjs.js'
-    // }]
   },
   css: {
     preprocessorOptions: {

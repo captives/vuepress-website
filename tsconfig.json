@@ -1,34 +1,51 @@
 {
-  "references": [
-    { "path": "./tsconfig.node.json" },
-    { "path": "./tsconfig.app.json" }
-  ],
   "include": [
-    "package.json",
-    "config-*",
-    "config/**/*",
-    "vite.config.*",
-    "vitest.config.*",
-    "cypress.config.*",
+    "src/**/*",
+    "src/**/*.vue",
+    "src/**/*.d.ts",
+    "tests/**/*.ts",
+    "tests/**/*.tsx",
     "config-pwa.ts"
   ],
+  "exclude": [
+    "src/utils/3d-forest.js",
+    "src/**/__tests__/*"
+  ],
   "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
     "composite": true,
-    "target": "ESNext",
-    "useDefineForClassFields": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "strict": true,
-    "jsx": "preserve",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "lib": ["ESNext", "DOM"],
+    "importHelpers": true,
+    "moduleResolution": "node",
     "skipLibCheck": true,
-    "noEmit": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "allowJs": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "baseUrl": "./",
     "types": [
-      "node","vite/client"
+      "node",
+      "vite/client",
+      "pinia-plugin-persistedstate",
+      // "vite-plugin-pwa/client",
+      "vite-plugin-svg-icons/client"
     ],
-  }
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ],
+    "paths": {
+      "@": ["src"],
+      "@/*": ["src/*"],
+    },
+  },
+  "references": [
+    { "path": "./tsconfig.node.json" }
+  ]
 }

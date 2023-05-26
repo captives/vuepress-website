@@ -1,5 +1,5 @@
 import { App, AppConfig, defineAsyncComponent } from 'vue';
-import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+import * as ElementPlusIconsVue from '@element-plus/icons-vue';
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
 import '@/theme/index.scss';
@@ -42,7 +42,6 @@ export default {
         app.provide('videoList', app.config.globalProperties.$videoList);
         app.provide('oss', app.config.globalProperties.$oss);
 
-        // if (!!options?.isVue) {
         /**
          * 注册目录内的所有组件为全局组件
          * https://cn.vitejs.dev/guide/features.html#glob-import
@@ -53,17 +52,16 @@ export default {
             // @ts-ignore;
             app.component(name, defineAsyncComponent(value));
         }
-        // }
 
         /**
          * 追踪运行时错误
          * https://cn.vuejs.org/guide/best-practices/production-deployment.html#tracking-runtime-errors
          */
-        app.config.warnHandler = (err, instance, info) => {
-            // 追踪错误服务报告
-        }
-        app.config.errorHandler = (err, instance, info) => {
-            // 追踪错误服务报告
-        }
+        // app.config.warnHandler = (err, instance, info) => {
+        //     // 追踪错误服务报告
+        // }
+        // app.config.errorHandler = (err, instance, info) => {
+        //     // 追踪错误服务报告
+        // }
     },
 };
